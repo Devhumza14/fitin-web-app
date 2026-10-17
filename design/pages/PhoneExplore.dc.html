@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fitin — Explore (phone)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#0E2340}a:hover{color:#167A7C}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 3100px; background: #ffffff; color: #1F2733; font-family: 'Figtree', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.5; overflow: hidden;">
+
+  <!-- Sticky search header -->
+  <header style="position: sticky; top: 0; z-index: 5; background: #ffffff; border-bottom: 1px solid #E4E7EB; padding: 12px 20px 0; display: flex; flex-direction: column; gap: 6px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a href="PhoneHome.dc.html" aria-label="Fitin home" style="flex: 0 0 auto;"><img src="../assets/fitin-logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain; display: block;"></a>
+      <button type="button" style="flex: 1 1 auto; min-width: 0; height: 52px; padding: 0 8px 0 16px; border-radius: 9999px; border: 1px solid #D5DAE0; background: #ffffff; font: inherit; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: rgba(14,35,64,0.04) 0 0 0 1px, rgba(14,35,64,0.08) 0 4px 10px;">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+        <span style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; line-height: 1.25;">
+          <span style="font-size: 14px; font-weight: 700; color: #0E2340;">Search designs</span>
+          <span style="font-size: 12px; color: #4A5462;">Any style · All cities · Any budget</span>
+        </span>
+      </button>
+      <button type="button" aria-label="Filters" style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 9999px; border: 1px solid #D5DAE0; background: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
+      </button>
+    </div>
+    <div role="tablist" aria-label="Rooms" style="display: flex; gap: 2px; overflow-x: auto; margin: 0 -20px; padding: 0 12px;">
+      <sc-for list="{{rooms}}" as="r" hint-placeholder-count="9">
+        <button type="button" role="tab" onClick="{{r.pick}}" aria-selected="{{r.pressed}}" style="{{r.style}}">{{r.label}}</button>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">{{heading}}</h1>
+      <span style="font-size: 13px; color: #5B6573;">100% customisable</span>
+    </div>
+
+    <sc-if value="{{hasResults}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 28px;">
+        <sc-for list="{{designs}}" as="d" hint-placeholder-count="6">
+          <article style="position: relative;">
+            <a href="PhoneDetail.dc.html" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #0E2340;">
+              <span style="display: block; aspect-ratio: 1 / 0.92; border-radius: 20px; overflow: hidden; background: #E8ECF2;">
+                <img src="{{d.img}}" alt="{{d.title}}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </span>
+              <span style="display: flex; flex-direction: column; gap: 1px;">
+                <span style="display: flex; justify-content: space-between; gap: 12px;">
+                  <span style="font-size: 16px; font-weight: 700;">{{d.title}}</span>
+                  <span style="font-size: 14px; color: #4A5462;">{{d.city}}</span>
+                </span>
+                <span style="font-size: 14px; color: #4A5462;">{{d.room}} · {{d.style}}</span>
+                <span style="font-size: 14px; margin-top: 2px;"><span style="font-weight: 700;">Free quote</span> in 24 hours</span>
+              </span>
+            </a>
+            <sc-if value="{{d.hasBadge}}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: 12px; left: 12px; background: #ffffff; color: #0E2340; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 9999px; box-shadow: rgba(14,35,64,0.1) 0 2px 8px; pointer-events: none;">{{d.badge}}</span>
+            </sc-if>
+            <button type="button" onClick="{{d.toggle}}" aria-label="{{d.saveLabel}}" aria-pressed="{{d.saved}}" style="position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="{{d.heartFill}}" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));"><path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.7 3.9 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.4 0 5.7 3.2 4.5 6.7-1.7 4.7-9.2 9.3-9.2 9.3z"></path></svg>
+            </button>
+          </article>
+        </sc-for>
+        <sc-if value="{{hasMore}}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{more}}" style="height: 52px; border-radius: 12px; border: 1px solid #0E2340; background: #ffffff; font: inherit; font-size: 16px; font-weight: 600; color: #0E2340; cursor: pointer;">Show more designs</button>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
+      <div style="border: 1px dashed #D5DAE0; border-radius: 24px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;">
+        <svg aria-hidden="true" width="56" height="24" viewBox="0 0 64 28"><path d="M0 14L64 0v14L0 28z" fill="#229E9F"></path></svg>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">No {{roomLower}} designs to preview yet</h2>
+        <p style="margin: 0; color: #4A5462;">A verified designer can create one around your space.</p>
+        <a href="PhoneStart.dc.html" style="margin-top: 6px; height: 52px; padding: 0 24px; border-radius: 12px; background: #0E2340; color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center;">Start a project</a>
+      </div>
+    </sc-if>
+
+    <div style="background: #0E2340; color: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.4px;">Love a look, but not the size?</h2>
+      <p style="margin: 0; font-size: 15px; color: #C9D2DE;">Every design adapts to your room and budget.</p>
+      <a href="PhoneStart.dc.html" style="height: 52px; border-radius: 9999px; background: #B6D22A; color: #0E2340; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center;">Start project</a>
+    </div>
+  </main>
+
+  <footer style="background: #F6F7F8; border-top: 1px solid #E4E7EB; padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #5B6573;">
+    <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 20px;">
+      <a href="PhoneServices.dc.html" style="padding: 6px 0; text-decoration: none;">Services</a>
+      <a href="PhoneDesigners.dc.html" style="padding: 6px 0; text-decoration: none;">For designers</a>
+      <a href="PhoneAbout.dc.html#m-contact" style="padding: 6px 0; text-decoration: none;">Contact</a>
+      <a href="PhoneLegal.dc.html" style="padding: 6px 0; text-decoration: none;">Privacy &amp; terms</a>
+    </nav>
+    <span>© 2026 Fitin Pakistan</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { room: 'All', saved: {}, shown: 6 };
+  }
+  renderVals() {
+    const labels = ['All', 'Living rooms', 'Bedrooms', 'Kitchens', 'Wardrobes', 'Bathrooms', 'Home offices', 'Dining areas', 'Commercial'];
+    const rooms = labels.map((label) => {
+      const on = this.state.room === label;
+      return {
+        label,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ room: label, shown: 6 }),
+        style: 'flex: 0 0 auto; min-height: 48px; padding: 0 12px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; ' +
+          (on ? 'color: #0E2340; box-shadow: inset 0 -2px 0 #0E2340;' : 'color: #5B6573; box-shadow: none;')
+      };
+    });
+    const all = [
+      { id: 1, title: 'Teal accent lounge', room: 'Living rooms', style: 'Warm Modern', city: 'Lahore', img: '../assets/living-navy-sofa-teal-cushions.jpg', badge: 'Most saved' },
+      { id: 2, title: 'Navy & white suite', room: 'Bedrooms', style: 'Contemporary', city: 'Karachi', img: '../assets/bedroom-navy-city-view.jpg', badge: '' },
+      { id: 3, title: 'Open white kitchen', room: 'Kitchens', style: 'Contemporary', city: 'Lahore', img: '../assets/kitchen-open-white.jpg', badge: 'Fitin pick' },
+      { id: 4, title: 'Garden-green kitchen', room: 'Kitchens', style: 'Warm Modern', city: 'Islamabad', img: '../assets/kitchen-green-glasshouse.jpg', badge: '' },
+      { id: 5, title: 'Warm timber bedroom', room: 'Bedrooms', style: 'Japandi Minimal', city: 'Islamabad', img: '../assets/bedroom-warm-timber.jpg', badge: '' },
+      { id: 6, title: 'Sunlit study nook', room: 'Home offices', style: 'Japandi Minimal', city: 'Karachi', img: '../assets/office-sunlit-desk.jpg', badge: '' },
+      { id: 7, title: 'Spa bath with a view', room: 'Bathrooms', style: 'Contemporary', city: 'Karachi', img: '../assets/bathroom-tub-window.jpg', badge: 'Fitin pick' },
+      { id: 8, title: 'Cream modular kitchen', room: 'Kitchens', style: 'Warm Modern', city: 'Faisalabad', img: '../assets/kitchen-modular-cream.jpg', badge: '' },
+      { id: 9, title: 'Built-in wardrobe wall', room: 'Wardrobes', style: 'Japandi Minimal', city: 'Lahore', img: '../assets/wardrobe-built-in.jpg', badge: '' },
+      { id: 10, title: 'Classic family dining', room: 'Dining areas', style: 'Classic', city: 'Multan', img: '../assets/dining-classic.jpg', badge: '' },
+      { id: 11, title: 'Pendant-lit bedroom', room: 'Bedrooms', style: 'Warm Modern', city: 'Rawalpindi', img: '../assets/bedroom-pendant-light.jpg', badge: '' },
+      { id: 12, title: 'Marble double vanity', room: 'Bathrooms', style: 'Classic', city: 'Lahore', img: '../assets/bathroom-double-vanity.jpg', badge: '' },
+      { id: 13, title: 'Patterned-tile galley', room: 'Kitchens', style: 'Contemporary', city: 'Karachi', img: '../assets/kitchen-patterned-tile.jpg', badge: '' },
+      { id: 14, title: 'Entry & storage wall', room: 'Wardrobes', style: 'Contemporary', city: 'Islamabad', img: '../assets/hallway-built-in-storage.jpg', badge: '' }
+    ];
+    const room = this.state.room;
+    const list = room === 'All' ? all : all.filter((d) => d.room === room);
+    const designs = list.slice(0, this.state.shown).map((d) => {
+      const saved = !!this.state.saved[d.id];
+      return Object.assign({}, d, {
+        hasBadge: !!d.badge,
+        saved: saved ? 'true' : 'false',
+        saveLabel: saved ? 'Remove ' + d.title + ' from saved' : 'Save ' + d.title,
+        heartFill: saved ? '#229E9F' : 'rgba(14,35,64,0.45)',
+        toggle: () => this.setState({ saved: Object.assign({}, this.state.saved, { [d.id]: !saved }) })
+      });
+    });
+    return {
+      rooms, designs,
+      hasResults: designs.length > 0,
+      noResults: designs.length === 0,
+      hasMore: list.length > this.state.shown,
+      more: () => this.setState({ shown: this.state.shown + 6 }),
+      heading: room === 'All' ? 'Popular designs' : room,
+      roomLower: room.toLowerCase()
+    };
+  }
+}
+</script>
+</body>
+</html>

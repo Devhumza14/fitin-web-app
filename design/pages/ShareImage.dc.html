@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fitin — Link preview image</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="width: 1200px; height: 630px; display: flex; background: #0E2340; font-family: 'Figtree', -apple-system, system-ui, sans-serif; color: #ffffff; overflow: hidden;">
+  <div style="flex: 0 0 640px; padding: 56px 56px 48px; display: flex; flex-direction: column; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <svg aria-hidden="true" width="46" height="58" viewBox="0 0 48 58"><path d="M0 14L48 0v12L0 26z" fill="#ffffff"></path><path d="M0 30L40 18v12L0 42z" fill="#229E9F"></path><path d="M0 46L32 36v12L0 58z" fill="#B6D22A"></path></svg>
+      <span style="font-size: 44px; font-weight: 800; letter-spacing: -1.4px;">fitin</span>
+    </div>
+    <h1 style="margin: 0; font-size: 66px; line-height: 1.02; letter-spacing: -2.2px; font-weight: 700;">Design, build and <span style="color: #B6D22A;">fit</span> — all in one place.</h1>
+    <div style="display: flex; align-items: center; gap: 16px; font-size: 22px; font-weight: 600;">
+      <span style="padding: 10px 20px; border-radius: 9999px; background: #B6D22A; color: #0E2340; font-weight: 700;">fitin.space</span>
+      <span style="color: #C9D2DE;">Karachi · Lahore · Islamabad +3</span>
+    </div>
+  </div>
+  <div style="flex: 1 1 auto; position: relative; padding: 24px 24px 24px 0;">
+    <div style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #1D2F4F;">
+      <img src="../assets/bedroom-navy-city-view.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="position: absolute; left: -36px; bottom: 56px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="align-self: flex-start; background: #ffffff; color: #0E2340; border-radius: 16px; padding: 12px 18px; font-size: 20px; font-weight: 700; transform: rotate(-3deg); box-shadow: rgba(0,0,0,0.25) 0 10px 24px;">01 Design</span>
+      <span style="align-self: flex-start; background: #167A7C; color: #ffffff; border-radius: 16px; padding: 12px 18px; font-size: 20px; font-weight: 700; transform: rotate(-3deg); box-shadow: rgba(0,0,0,0.25) 0 10px 24px;">02 Build</span>
+      <span style="align-self: flex-start; background: #B6D22A; color: #0E2340; border-radius: 16px; padding: 12px 18px; font-size: 20px; font-weight: 700; transform: rotate(-3deg); box-shadow: rgba(0,0,0,0.25) 0 10px 24px;">03 Fit</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":630}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

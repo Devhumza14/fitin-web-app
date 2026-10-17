@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.log
+.DS_Store
+supabase/.temp/
+graphify-out/
+strix_runs/
+test-results/
+playwright-report/

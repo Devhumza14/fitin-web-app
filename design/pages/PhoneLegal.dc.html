@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fitin — Privacy &amp; terms (phone)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#0E2340}a:hover{color:#167A7C}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 2300px; background: #ffffff; color: #1F2733; font-family: 'Figtree', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 5; height: 64px; padding: 0 20px; background: #ffffff; border-bottom: 1px solid #E4E7EB; display: flex; align-items: center; justify-content: space-between;">
+    <a href="PhoneHome.dc.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #0E2340;">
+      <img src="../assets/fitin-logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
+      <span style="font-size: 22px; font-weight: 800; letter-spacing: -0.7px;">fitin</span>
+    </a>
+    <a href="PhoneMenu.dc.html" aria-label="Open menu" style="width: 44px; height: 44px; border-radius: 9999px; border: 1px solid #D5DAE0; display: flex; align-items: center; justify-content: center;">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </a>
+  </header>
+
+  <section style="padding: 28px 20px 16px; display: flex; flex-direction: column; gap: 14px;">
+    <h1 style="margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -1px; font-weight: 700; color: #0E2340;">{{docTitle}}</h1>
+    <span style="font-size: 14px; color: #5B6573;">Last updated: [Date]</span>
+    <div role="tablist" aria-label="Legal documents" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F6F7F8; border-radius: 9999px; padding: 4px;">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+        <button type="button" role="tab" aria-selected="{{t.pressed}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+      </sc-for>
+    </div>
+    <div role="note" style="background: #F2F7E3; border-radius: 14px; padding: 12px 14px; font-size: 14px; color: #22300A; line-height: 1.5;">Draft layout. Final wording must come from Fitin's legal counsel before launch.</div>
+  </section>
+
+  <section style="padding: 0 20px 32px;">
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="7">
+      <div style="border-bottom: 1px solid #E4E7EB;">
+        <button type="button" onClick="{{s.toggle}}" aria-expanded="{{s.expanded}}" style="width: 100%; min-height: 60px; padding: 14px 0; border: 0; background: transparent; font: inherit; font-size: 16px; font-weight: 700; color: #0E2340; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer;">
+          {{s.n}}. {{s.title}}
+          <span aria-hidden="true" style="{{s.iconStyle}}">+</span>
+        </button>
+        <sc-if value="{{s.open}}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+            <p style="margin: 0; font-size: 15px; color: #3B4552;">{{s.summary}}</p>
+            <p style="margin: 0; font-size: 14px; color: #5B6573; font-style: italic;">[Legal wording for this section]</p>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <p style="margin: 24px 0 0; font-size: 15px; color: #4A5462;">Questions? Email <a href="mailto:hello@fitin.space">hello@fitin.space</a>.</p>
+  </section>
+
+  <footer style="background: #F6F7F8; border-top: 1px solid #E4E7EB; padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #5B6573;">
+    <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 4px 20px;">
+      <a href="PhoneHome.dc.html" style="padding: 6px 0; text-decoration: none;">Home</a>
+      <a href="PhoneAbout.dc.html" style="padding: 6px 0; text-decoration: none;">About &amp; contact</a>
+    </nav>
+    <span>© 2026 Fitin Pakistan</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { doc: 'Privacy', open: 0 };
+  }
+  renderVals() {
+    const docs = {
+      Privacy: [
+        ['What we collect', 'The details you give us in forms (name, phone, email, city, project details) and basic usage data from your visit.'],
+        ['How we use it', 'To respond to your request, match you with designers and vendors, prepare quotes and keep you updated.'],
+        ['Who we share it with', 'Only the designers and vendors working on your project, and service providers that help us run Fitin.'],
+        ['WhatsApp and calls', 'How we contact you, and how to opt out of updates at any time.'],
+        ['How long we keep it', 'How long project and contact records are stored, and when they are deleted.'],
+        ['Your choices', 'How to see, correct or delete your information.'],
+        ['Contact', 'Who to reach about privacy questions.']
+      ],
+      Terms: [
+        ['About Fitin', 'Fitin is a platform connecting homeowners with independent designers and vendors.'],
+        ['Using the platform', 'Who can use Fitin and what is expected of every user.'],
+        ['Quotes and estimates', 'Estimates and calculator figures are guides; a final quote follows a site visit.'],
+        ['Payments', 'How payments, milestones and refunds work between homeowners, designers and vendors.'],
+        ['Designers and vendors', 'The responsibilities of verified professionals working through Fitin.'],
+        ['Liability', 'What Fitin is and is not responsible for.'],
+        ['Changes and contact', 'How these terms change and how to reach us.']
+      ]
+    };
+    const s = this.state;
+    const sections = docs[s.doc].map(([title, summary], i) => {
+      const open = s.open === i;
+      return {
+        n: i + 1, title, summary, open,
+        expanded: open ? 'true' : 'false',
+        toggle: () => this.setState({ open: open ? -1 : i }),
+        iconStyle: 'flex: 0 0 auto; width: 30px; height: 30px; border-radius: 9999px; background: #F6F7F8; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; transition: transform 200ms ease; transform: rotate(' + (open ? '45deg' : '0deg') + ');'
+      };
+    });
+    const tabs = ['Privacy', 'Terms'].map((label) => {
+      const on = label === s.doc;
+      return {
+        label,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ doc: label, open: 0 }),
+        style: 'min-height: 44px; border: 0; border-radius: 9999px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; ' +
+          (on ? 'background: #0E2340; color: #ffffff;' : 'background: transparent; color: #0E2340;')
+      };
+    });
+    return { tabs, sections, docTitle: s.doc === 'Privacy' ? 'Privacy policy' : 'Terms of service' };
+  }
+}
+</script>
+</body>
+</html>

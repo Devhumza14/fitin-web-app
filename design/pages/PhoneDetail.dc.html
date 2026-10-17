@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fitin — Teal accent lounge (phone)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#0E2340}a:hover{color:#167A7C}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 3300px; background: #ffffff; color: #1F2733; font-family: 'Figtree', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.5; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Gallery -->
+  <div style="position: relative; height: 340px; flex: 0 0 auto;">
+    <div onScroll="{{onGallery}}" style="display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;">
+      <div style="flex: 0 0 390px; height: 100%; scroll-snap-align: start; background: #E8ECF2;">
+        <img src="../assets/living-navy-sofa-teal-cushions.jpg" alt="Navy sofa with teal textured cushions" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="flex: 0 0 390px; height: 100%; scroll-snap-align: start; background: #F6F7F8; padding: 72px 28px 40px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #5B6573;">Material board</span>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; flex: 1 1 auto;">
+          <span style="border-radius: 14px; background: #1D2F4F;"></span><span style="border-radius: 14px; background: #2B9C9B;"></span>
+          <span style="border-radius: 14px; background: #C8A27A;"></span><span style="border-radius: 14px; background: #ECE6DA;"></span>
+        </div>
+      </div>
+      <div style="flex: 0 0 390px; height: 100%; scroll-snap-align: start; background: #E8ECF2; padding: 72px 28px 40px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #5B6573;">Layout</span>
+        <svg role="img" aria-label="Floor plan sketch of the lounge" viewBox="0 0 200 120" style="width: 100%; height: auto;" fill="none" stroke="#0E2340" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="192" height="112" rx="4"></rect>
+          <rect x="40" y="14" width="96" height="26" rx="6" fill="#229E9F" stroke="none"></rect>
+          <rect x="62" y="56" width="52" height="28" rx="4"></rect>
+          <circle cx="160" cy="44" r="14" fill="#B6D22A" stroke="none"></circle>
+          <rect x="40" y="100" width="96" height="10" rx="2" stroke-opacity="0.6"></rect>
+        </svg>
+      </div>
+      <div style="flex: 0 0 390px; height: 100%; scroll-snap-align: start; background: #0E2340; color: #ffffff; padding: 72px 28px 40px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px;">
+        <span style="width: 52px; height: 52px; border-radius: 9999px; background: #B6D22A; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="#0E2340"><path d="M8 5v14l11-7z"></path></svg></span>
+        <span style="font-size: 20px; font-weight: 700; line-height: 1.3;">3D walkthrough of your own room, after your consultation</span>
+      </div>
+    </div>
+    <div style="position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; pointer-events: none;">
+      <a href="PhoneExplore.dc.html" aria-label="Back to designs" style="pointer-events: auto; width: 40px; height: 40px; border-radius: 9999px; background: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: rgba(14,35,64,0.15) 0 2px 8px;">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>
+      </a>
+      <div style="display: flex; gap: 8px;">
+        <button type="button" aria-label="Share" style="pointer-events: auto; width: 40px; height: 40px; border-radius: 9999px; border: 0; background: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: rgba(14,35,64,0.15) 0 2px 8px; cursor: pointer;">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 8l5-5 5 5M5 14v6h14v-6"></path></svg>
+        </button>
+        <button type="button" onClick="{{toggleSave}}" aria-label="{{saveLabel}}" aria-pressed="{{savedAttr}}" style="pointer-events: auto; width: 40px; height: 40px; border-radius: 9999px; border: 0; background: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: rgba(14,35,64,0.15) 0 2px 8px; cursor: pointer;">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="{{heartFill}}" stroke="#0E2340" stroke-width="2" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.7 3.9 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.4 0 5.7 3.2 4.5 6.7-1.7 4.7-9.2 9.3-9.2 9.3z"></path></svg>
+        </button>
+      </div>
+    </div>
+    <span style="position: absolute; right: 16px; bottom: 36px; background: rgba(14,35,64,0.72); color: #ffffff; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 9999px;">Swipe · 4 views</span>
+  </div>
+
+  <!-- Content sheet -->
+  <main style="position: relative; margin-top: -20px; background: #ffffff; border-radius: 24px 24px 0 0; padding: 24px 20px 32px; display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid #E4E7EB;">
+      <h1 style="margin: 0; font-size: 28px; line-height: 1.15; font-weight: 700; letter-spacing: -0.8px; color: #0E2340;">Teal accent lounge</h1>
+      <span style="font-size: 15px; color: #4A5462;">Living room · Warm Modern · Lahore</span>
+      <span style="font-size: 14px; font-weight: 600; color: #167A7C;">100% customisable</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 14px; padding: 20px 0; border-bottom: 1px solid #E4E7EB;">
+      <span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 9999px; background: #E8ECF2; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0E2340; flex: 0 0 auto;">DN</span>
+      <div style="display: flex; flex-direction: column; min-width: 0;">
+        <span style="font-weight: 700; color: #0E2340;">Designed by [Designer name]</span>
+        <span style="font-size: 13px; color: #4A5462;">Verified Fitin designer · Lahore</span>
+      </div>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 20px 0; border-bottom: 1px solid #E4E7EB; display: flex; flex-direction: column; gap: 18px;">
+      <li style="display: flex; gap: 14px;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto;"><path d="M4 20l4-1 11-11-3-3L5 16z"></path><path d="M14 6l3 3"></path></svg><div><div style="font-weight: 700; color: #0E2340;">Made for your room</div><div style="font-size: 14px; color: #4A5462;">Sizes, fabrics and finishes adjusted to you.</div></div></li>
+      <li style="display: flex; gap: 14px;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto;"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><div><div style="font-weight: 700; color: #0E2340;">Built by trusted vendors</div><div style="font-size: 14px; color: #4A5462;">Produced and installed by verified vendors.</div></div></li>
+      <li style="display: flex; gap: 14px;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto;"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 15l3-3 3 2 4-5"></path></svg><div><div style="font-weight: 700; color: #0E2340;">Tracked in one place</div><div style="font-size: 14px; color: #4A5462;">Production to installation.</div></div></li>
+    </ul>
+
+    <div style="padding: 20px 0; border-bottom: 1px solid #E4E7EB; display: flex; flex-direction: column; gap: 10px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">About this design</h2>
+      <p style="margin: 0; font-size: 15px; color: #3B4552;">A calm, deep-navy lounge lifted by teal textures and warm oak, with low, generous seating and layered lighting.</p>
+    </div>
+
+    <div style="padding: 20px 0; border-bottom: 1px solid #E4E7EB; display: flex; flex-direction: column; gap: 12px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">What's included</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; font-size: 15px;">
+        <li>Three-seater sofa</li><li>Accent armchair</li><li>Coffee table</li><li>Media wall unit</li><li>Rug &amp; cushions</li><li>Lighting plan</li>
+      </ul>
+    </div>
+
+    <div style="padding: 20px 0; border-bottom: 1px solid #E4E7EB; display: flex; flex-direction: column; gap: 18px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">Make it yours</h2>
+      <fieldset style="border: 0; margin: 0; padding: 0;">
+        <legend style="padding: 0; margin-bottom: 10px; font-size: 15px; font-weight: 700; color: #0E2340;">Upholstery · <span style="font-weight: 500; color: #4A5462;">{{fabric}}</span></legend>
+        <div style="display: flex; gap: 12px;">
+          <sc-for list="{{fabrics}}" as="f" hint-placeholder-count="4">
+            <button type="button" onClick="{{f.pick}}" aria-label="{{f.label}}" aria-pressed="{{f.pressed}}" style="{{f.style}}"></button>
+          </sc-for>
+        </div>
+      </fieldset>
+      <fieldset style="border: 0; margin: 0; padding: 0;">
+        <legend style="padding: 0; margin-bottom: 10px; font-size: 15px; font-weight: 700; color: #0E2340;">Wood · <span style="font-weight: 500; color: #4A5462;">{{wood}}</span></legend>
+        <div style="display: flex; gap: 12px;">
+          <sc-for list="{{woods}}" as="f" hint-placeholder-count="3">
+            <button type="button" onClick="{{f.pick}}" aria-label="{{f.label}}" aria-pressed="{{f.pressed}}" style="{{f.style}}"></button>
+          </sc-for>
+        </div>
+      </fieldset>
+    </div>
+
+    <div style="padding: 20px 0; display: flex; flex-direction: column; gap: 10px;">
+      <h2 style="margin: 0 0 4px; font-size: 20px; font-weight: 700; color: #0E2340;">How it comes together</h2>
+      <div style="width: 100%; background: #0E2340; color: #ffffff; border-radius: 18px; padding: 14px 16px; display: flex; gap: 12px; align-items: center;"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #9ED6D6;">01 Design</span><span style="font-size: 14px;">Site visit &amp; material board</span></div>
+      <div style="width: 90%; background: #167A7C; color: #ffffff; border-radius: 18px; padding: 14px 16px; display: flex; gap: 12px; align-items: center;"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #E3F1B4;">02 Build</span><span style="font-size: 14px;">Made to measure</span></div>
+      <div style="width: 80%; background: #B6D22A; color: #0E2340; border-radius: 18px; padding: 14px 16px; display: flex; gap: 12px; align-items: center;"><span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">03 Fit</span><span style="font-size: 14px;">Installed &amp; styled</span></div>
+    </div>
+
+    <div style="padding: 20px 0 0; border-top: 1px solid #E4E7EB; display: flex; flex-direction: column; gap: 14px;">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">You might also like</h2>
+      <div style="display: flex; gap: 12px; overflow-x: auto; margin: 0 -20px; padding: 0 20px 4px; scroll-snap-type: x mandatory;">
+        <a href="PhoneDetail.dc.html" style="flex: 0 0 200px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0E2340;"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8ECF2;"><img src="../assets/bedroom-navy-city-view.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 700;">Navy &amp; white suite</span></a>
+        <a href="PhoneDetail.dc.html" style="flex: 0 0 200px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0E2340;"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8ECF2;"><img src="../assets/dining-classic.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 700;">Classic family dining</span></a>
+        <a href="PhoneDetail.dc.html" style="flex: 0 0 200px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0E2340;"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8ECF2;"><img src="../assets/bedroom-warm-timber.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 700;">Warm timber bedroom</span></a>
+      </div>
+    </div>
+  </main>
+
+  <div style="flex: 1 1 auto;"></div>
+
+  <!-- Sticky quote bar -->
+  <div style="position: sticky; bottom: 0; background: #ffffff; border-top: 1px solid #E4E7EB; padding: 12px 20px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: rgba(14,35,64,0.06) 0 -4px 12px;">
+    <div style="display: flex; flex-direction: column; line-height: 1.3;">
+      <span style="font-size: 15px; font-weight: 700; color: #0E2340;">Free quote</span>
+      <span style="font-size: 13px; color: #4A5462;">{{fabric}} · {{wood}}</span>
+    </div>
+    <a href="PhoneStart.dc.html" style="height: 52px; padding: 0 22px; border-radius: 9999px; background: #B6D22A; color: #0E2340; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center;">Request a quote</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { fabric: 'Navy velvet', wood: 'Natural oak', saved: false };
+  }
+  swatches(list, key) {
+    return list.map(([label, color]) => {
+      const on = this.state[key] === label;
+      return {
+        label,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ [key]: label }),
+        style: 'width: 48px; height: 48px; border-radius: 9999px; cursor: pointer; padding: 0; background: ' + color + '; border: 3px solid #ffffff; ' +
+          (on ? 'box-shadow: 0 0 0 2px #0E2340;' : 'box-shadow: 0 0 0 1px #D5DAE0;')
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+      fabric: s.fabric, wood: s.wood,
+      fabrics: this.swatches([['Navy velvet', '#1D2F4F'], ['Teal linen', '#2B9C9B'], ['Oat bouclé', '#E4DCCB'], ['Charcoal weave', '#3D4148']], 'fabric'),
+      woods: this.swatches([['Natural oak', '#C8A27A'], ['Walnut', '#6B4A33'], ['White wash', '#ECE6DA']], 'wood'),
+      toggleSave: () => this.setState({ saved: !s.saved }),
+      savedAttr: s.saved ? 'true' : 'false',
+      saveLabel: s.saved ? 'Remove from saved' : 'Save design',
+      heartFill: s.saved ? '#229E9F' : 'none',
+      onGallery: () => {}
+    };
+  }
+}
+</script>
+</body>
+</html>

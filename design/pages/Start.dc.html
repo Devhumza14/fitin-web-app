@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fitin — Start your project</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#0E2340}a:hover{color:#167A7C}
+*{box-sizing:border-box}
+input:focus,select:focus{outline:2px solid #0E2340;outline-offset:0}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100vh; background: #F6F7F8; color: #1F2733; font-family: 'Figtree', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.5;">
+
+  <!-- Focused header -->
+  <header style="background: #ffffff; border-bottom: 1px solid #E4E7EB;">
+    <div style="max-width: 1160px; margin: 0 auto; padding: 0 40px; min-height: 76px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0E2340;">
+        <img src="../assets/fitin-logo.png" alt="" style="width: 36px; height: 36px; object-fit: contain;">
+        <span style="font-size: 24px; font-weight: 800; letter-spacing: -0.8px;">fitin</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+        <a href="https://wa.me/923111555264" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 9999px; text-decoration: none; font-weight: 600;">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#167A7C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.2 8L3 21l1.1-4.6A9 9 0 1 1 21 12z"></path></svg>
+          Questions? WhatsApp us
+        </a>
+        <a href="Main.dc.html" style="padding: 10px 16px; border-radius: 9999px; border: 1px solid #D5DAE0; background: #ffffff; text-decoration: none; font-weight: 600;">Exit</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width: 1160px; margin: 0 auto; padding: 48px 40px 80px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+
+    <!-- ===== Form column ===== -->
+    <section style="flex: 999 1 560px; min-width: 0; background: #ffffff; border-radius: 24px; border: 1px solid #E4E7EB; padding: 40px; display: flex; flex-direction: column; gap: 32px;">
+
+      <sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #5B6573;">
+            <span>Step {{stepNum}} of 4</span>
+            <span>{{stepName}}</span>
+          </div>
+          <div aria-hidden="true" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px;">
+            <sc-for list="{{segments}}" as="seg" hint-placeholder-count="4">
+              <span style="{{seg.style}}"></span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- STEP 1 -->
+      <sc-if value="{{isStep1}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -1px; color: #0E2340;">Which space are we working on?</h1>
+            <p style="margin: 0; color: #4A5462;">Pick the main one. You can add more rooms with your designer later.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px;">
+            <sc-for list="{{spaces}}" as="s" hint-placeholder-count="9">
+              <button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="{{s.style}}">
+                <span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #E8ECF2;">
+                  <img src="{{s.img}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </span>
+                <span style="display: flex; justify-content: space-between; align-items: center; padding: 10px 4px 2px; font-size: 15px; font-weight: 700; color: #0E2340;">
+                  {{s.label}}
+                  <span style="{{s.checkStyle}}">
+                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>
+                  </span>
+                </span>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{e.space.show}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.space.msg}}</p></sc-if>
+        </div>
+      </sc-if>
+
+      <!-- STEP 2 -->
+      <sc-if value="{{isStep2}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -1px; color: #0E2340;">Where is it, and what do you need?</h1>
+            <p style="margin: 0; color: #4A5462;">We match you with designers and vendors in your city.</p>
+          </div>
+          <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <legend style="padding: 0; margin-bottom: 12px; font-size: 15px; font-weight: 700; color: #0E2340;">City</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <sc-for list="{{cities}}" as="c" hint-placeholder-count="6">
+                <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{e.city.show}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 10px 0 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.city.msg}}</p></sc-if>
+          </fieldset>
+          <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <legend style="padding: 0; margin-bottom: 12px; font-size: 15px; font-weight: 700; color: #0E2340;">Service</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <sc-for list="{{services}}" as="c" hint-placeholder-count="5">
+                <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{e.service.show}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 10px 0 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.service.msg}}</p></sc-if>
+          </fieldset>
+          <label style="display: flex; flex-direction: column; gap: 8px; max-width: 320px;">
+            <span style="font-size: 15px; font-weight: 700; color: #0E2340;">Approximate size</span>
+            <span style="position: relative; display: block;">
+              <input type="number" min="0" inputmode="numeric" placeholder="e.g. 220" value="{{size}}" onChange="{{onSize}}" aria-invalid="{{e.size.invalid}}" style="width: 100%; height: 56px; border: 1px solid {{e.size.border}}; border-radius: 12px; padding: 0 64px 0 16px; font: inherit; font-size: 16px; color: #1F2733; background: #ffffff;">
+              <span style="position: absolute; right: 16px; top: 16px; font-size: 15px; color: #5B6573;">sq ft</span>
+            </span>
+            <span style="font-size: 13px; color: #5B6573;">Not sure? Leave it blank and we'll measure on site.</span>
+            <sc-if value="{{e.size.show}}" hint-placeholder-val="{{ false }}"><span role="alert" style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.size.msg}}</span></sc-if>
+          </label>
+        </div>
+      </sc-if>
+
+      <!-- STEP 3 -->
+      <sc-if value="{{isStep3}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -1px; color: #0E2340;">Your style and budget</h1>
+            <p style="margin: 0; color: #4A5462;">A starting point only. Everything stays 100% customisable.</p>
+          </div>
+          <fieldset style="border: 0; margin: 0; padding: 0;">
+            <legend style="padding: 0; margin-bottom: 12px; font-size: 15px; font-weight: 700; color: #0E2340;">Style</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <sc-for list="{{styles}}" as="c" hint-placeholder-count="5">
+                <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{e.style.show}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 10px 0 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.style.msg}}</p></sc-if>
+          </fieldset>
+          <fieldset style="border: 0; margin: 0; padding: 0;">
+            <legend style="padding: 0; margin-bottom: 12px; font-size: 15px; font-weight: 700; color: #0E2340;">Budget</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <sc-for list="{{budgets}}" as="c" hint-placeholder-count="5">
+                <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{e.budget.show}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 10px 0 0; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.budget.msg}}</p></sc-if>
+          </fieldset>
+        </div>
+      </sc-if>
+
+      <!-- STEP 4 -->
+      <sc-if value="{{isStep4}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h1 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -1px; color: #0E2340;">Where should we send your quote?</h1>
+            <p style="margin: 0; color: #4A5462;">A Fitin advisor will call you within 24 hours. No spam, no commitment.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 14px; font-weight: 700; color: #0E2340;">Full name</span>
+              <input type="text" autocomplete="name" value="{{name}}" onChange="{{onName}}" aria-invalid="{{e.name.invalid}}" style="height: 56px; border: 1px solid {{e.name.border}}; border-radius: 12px; padding: 0 16px; font: inherit; color: #1F2733; background: #ffffff;">
+              <sc-if value="{{e.name.show}}" hint-placeholder-val="{{ false }}"><span role="alert" style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.name.msg}}</span></sc-if>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 14px; font-weight: 700; color: #0E2340;">Phone</span>
+              <input type="tel" autocomplete="tel" placeholder="+92 3XX XXXXXXX" value="{{phone}}" onChange="{{onPhone}}" aria-invalid="{{e.phone.invalid}}" style="height: 56px; border: 1px solid {{e.phone.border}}; border-radius: 12px; padding: 0 16px; font: inherit; color: #1F2733; background: #ffffff;">
+              <sc-if value="{{e.phone.show}}" hint-placeholder-val="{{ false }}"><span role="alert" style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #B42318;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.2" stroke-linecap="round" style="flex: 0 0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5h.01"></path></svg>{{e.phone.msg}}</span></sc-if>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px; grid-column: 1 / -1;">
+              <span style="font-size: 14px; font-weight: 700; color: #0E2340;">Email <span style="font-weight: 500; color: #5B6573;">(optional)</span></span>
+              <input type="email" autocomplete="email" value="{{email}}" onChange="{{onEmail}}" style="height: 56px; border: 1px solid #D5DAE0; border-radius: 12px; padding: 0 16px; font: inherit; color: #1F2733; background: #ffffff;">
+            </label>
+          </div>
+          <label style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #1F2733; cursor: pointer;">
+            <input type="checkbox" checked="{{wa}}" onChange="{{onWa}}" style="width: 20px; height: 20px; accent-color: #0E2340;">
+            Send me project updates on WhatsApp
+          </label>
+        </div>
+      </sc-if>
+
+      <!-- Nav buttons -->
+      <sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #E4E7EB; padding-top: 24px;">
+          <sc-if value="{{showBack}}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{back}}" style="height: 52px; padding: 0 8px; border: 0; background: transparent; font: inherit; font-size: 16px; font-weight: 600; color: #0E2340; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">Back</button>
+          </sc-if>
+          <sc-if value="{{isStep1}}" hint-placeholder-val="{{ true }}">
+            <span></span>
+          </sc-if>
+          <sc-if value="{{showNext}}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{next}}" style="height: 52px; padding: 0 32px; border: 0; border-radius: 12px; background: #0E2340; color: #ffffff; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;">Continue</button>
+          </sc-if>
+          <sc-if value="{{isStep4}}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{submit}}" style="height: 56px; padding: 0 28px; border: 0; border-radius: 9999px; background: #B6D22A; color: #0E2340; font: inherit; font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+              Request my free quote
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </button>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- DONE -->
+      <sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px 0;">
+          <span style="width: 72px; height: 72px; border-radius: 9999px; background: #B6D22A; display: flex; align-items: center; justify-content: center;">
+            <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E2340" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>
+          </span>
+          <h1 style="margin: 0; font-size: 40px; line-height: 1.1; font-weight: 700; letter-spacing: -1.2px; color: #0E2340;">Request received{{thanksName}}.</h1>
+          <p style="margin: 0; max-width: 520px; font-size: 18px; color: #4A5462;">A Fitin advisor will call you within 24 hours to talk through your {{spaceLower}} and book a site visit.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;">
+            <a href="Explore.dc.html" style="height: 52px; padding: 0 28px; border-radius: 12px; background: #0E2340; color: #ffffff; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center;">Browse designs meanwhile</a>
+            <a href="Main.dc.html" style="height: 52px; padding: 0 24px; border-radius: 12px; background: #ffffff; color: #0E2340; border: 1px solid #0E2340; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center;">Back to home</a>
+          </div>
+        </div>
+      </sc-if>
+    </section>
+
+    <!-- ===== Summary column ===== -->
+    <aside aria-label="Your project summary" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+      <div style="background: #ffffff; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: rgba(14,35,64,0.04) 0 0 0 1px, rgba(14,35,64,0.08) 0 4px 10px, rgba(14,35,64,0.14) 0 10px 24px;">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #0E2340;">Your project</h2>
+        <dl style="margin: 0; display: flex; flex-direction: column;">
+          <sc-for list="{{summary}}" as="r" hint-placeholder-count="6">
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #E4E7EB; font-size: 15px;">
+              <dt style="color: #5B6573;">{{r.k}}</dt>
+              <dd style="margin: 0; font-weight: 600; color: {{r.color}}; text-align: right;">{{r.v}}</dd>
+            </div>
+          </sc-for>
+        </dl>
+      </div>
+
+      <div style="background: #0E2340; color: #ffffff; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 700;">What happens next</h2>
+        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 15px;">
+          <li style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg aria-hidden="true" width="36" height="16" viewBox="0 0 64 28" style="flex: 0 0 auto; margin-top: 4px;"><path d="M0 14L64 0v14L0 28z" fill="#9ED6D6"></path></svg>
+            <span>We call you within 24 hours</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg aria-hidden="true" width="36" height="16" viewBox="0 0 64 28" style="flex: 0 0 auto; margin-top: 4px;"><path d="M0 14L64 0v14L0 28z" fill="#229E9F"></path></svg>
+            <span>You're matched with a verified designer near you</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: flex-start;">
+            <svg aria-hidden="true" width="36" height="16" viewBox="0 0 64 28" style="flex: 0 0 auto; margin-top: 4px;"><path d="M0 14L64 0v14L0 28z" fill="#B6D22A"></path></svg>
+            <span>You get a tailored, itemised quote</span>
+          </li>
+        </ol>
+      </div>
+    </aside>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 1, done: false, tried: false, space: null, city: null, service: null, size: '', style: null, budget: null, name: '', phone: '', email: '', wa: true };
+  }
+  validate(s) {
+    const m = {};
+    if (s.step === 1 && !s.space) m.space = 'Pick the space you want to work on.';
+    if (s.step === 2) {
+      if (!s.city) m.city = 'Choose your city.';
+      if (!s.service) m.service = 'Choose a service.';
+      if (s.size !== '' && !(Number(s.size) > 0 && Number(s.size) < 100000)) m.size = 'Enter a size in square feet, or leave it blank.';
+    }
+    if (s.step === 3) {
+      if (!s.style) m.style = 'Pick a style, or "Help me choose".';
+      if (!s.budget) m.budget = 'Pick a budget, or "Not sure yet".';
+    }
+    if (s.step === 4) {
+      if (s.name.trim().length < 2) m.name = 'Enter your full name.';
+      const d = s.phone.replace(/\D/g, '').replace(/^00/, '');
+      if (!d) m.phone = 'Enter your phone number so we can call you.';
+      else if (!/^(92|0)?3\d{9}$/.test(d)) m.phone = 'Enter a Pakistani mobile number, e.g. 0300 1234567.';
+    }
+    return m;
+  }
+  chips(list, key) {
+    return list.map((label) => {
+      const on = this.state[key] === label;
+      return {
+        label,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ [key]: label }),
+        style: 'min-height: 48px; padding: 0 20px; border-radius: 9999px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; ' +
+          (on ? 'background: #0E2340; color: #ffffff; border: 1px solid #0E2340;' : 'background: #ffffff; color: #0E2340; border: 1px solid #D5DAE0;')
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const names = ['Space', 'Location & service', 'Style & budget', 'Contact'];
+    const segColors = ['#0E2340', '#229E9F', '#B6D22A', '#0E2340'];
+    const segments = segColors.map((c, i) => ({
+      style: 'display: block; height: 6px; border-radius: 9999px; background: ' + (i < s.step ? c : '#E4E7EB') + ';'
+    }));
+    const spaceData = [
+      ['Living room', '../assets/living-navy-sofa-teal-cushions.jpg'],
+      ['Kitchen', '../assets/kitchen-open-white.jpg'],
+      ['Bedroom', '../assets/bedroom-pendant-light.jpg'],
+      ['Bathroom', '../assets/bathroom-double-vanity.jpg'],
+      ['Wardrobe', '../assets/wardrobe-built-in.jpg'],
+      ['Home office', '../assets/office-sunlit-desk.jpg'],
+      ['Dining area', '../assets/dining-classic.jpg'],
+      ['Full home', '../assets/bedroom-navy-city-view.jpg'],
+      ['Commercial', '../assets/hallway-built-in-storage.jpg']
+    ];
+    const spaces = spaceData.map(([label, img]) => {
+      const on = s.space === label;
+      return {
+        label, img,
+        pressed: on ? 'true' : 'false',
+        pick: () => this.setState({ space: label }),
+        style: 'display: block; text-align: left; padding: 8px; border-radius: 18px; background: #ffffff; font: inherit; cursor: pointer; ' +
+          (on ? 'border: 2px solid #0E2340; box-shadow: 0 0 0 4px #E8ECF2;' : 'border: 2px solid #E4E7EB; box-shadow: none;'),
+        checkStyle: 'width: 22px; height: 22px; border-radius: 9999px; background: #B6D22A; align-items: center; justify-content: center; display: ' + (on ? 'inline-flex' : 'none') + ';'
+      };
+    });
+    const dash = (v) => v ? v : '—';
+    const summary = [
+      { k: 'Space', v: dash(s.space) },
+      { k: 'City', v: dash(s.city) },
+      { k: 'Service', v: dash(s.service) },
+      { k: 'Size', v: s.size ? s.size + ' sq ft' : '—' },
+      { k: 'Style', v: dash(s.style) },
+      { k: 'Budget', v: dash(s.budget) }
+    ].map((r) => Object.assign(r, { color: r.v === '—' ? '#5B6573' : '#0E2340' }));
+    const val = (key) => (ev) => this.setState({ [key]: ev.target.value });
+    const msgs = s.tried ? this.validate(s) : {};
+    const mk = (k) => ({ show: !!msgs[k], msg: msgs[k] || '', invalid: msgs[k] ? 'true' : 'false', border: msgs[k] ? '#B42318' : '#D5DAE0' });
+    const e = { space: mk('space'), city: mk('city'), service: mk('service'), size: mk('size'), style: mk('style'), budget: mk('budget'), name: mk('name'), phone: mk('phone') };
+    return {
+      stepNum: s.step,
+      stepName: names[s.step - 1],
+      segments,
+      notDone: !s.done,
+      done: s.done,
+      isStep1: !s.done && s.step === 1,
+      isStep2: !s.done && s.step === 2,
+      isStep3: !s.done && s.step === 3,
+      isStep4: !s.done && s.step === 4,
+      showBack: !s.done && s.step > 1,
+      showNext: !s.done && s.step < 4,
+      spaces,
+      cities: this.chips(['Karachi', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan'], 'city'),
+      services: this.chips(['Modular kitchen & wardrobe', 'Full-home interior', 'Signature', 'Renovation', 'Furniture only'], 'service'),
+      styles: this.chips(['Warm Modern', 'Japandi Minimal', 'Contemporary', 'Classic', 'Help me choose'], 'style'),
+      budgets: this.chips(['Under PKR 5 Lakh', 'PKR 5–10 Lakh', 'PKR 10–25 Lakh', 'PKR 25 Lakh+', 'Not sure yet'], 'budget'),
+      summary,
+      size: s.size, name: s.name, phone: s.phone, email: s.email, wa: s.wa,
+      onSize: val('size'), onName: val('name'), onPhone: val('phone'), onEmail: val('email'),
+      onWa: (e) => this.setState({ wa: e.target.checked }),
+      e,
+      next: () => Object.keys(this.validate(s)).length ? this.setState({ tried: true }) : this.setState({ step: Math.min(4, s.step + 1), tried: false }),
+      back: () => this.setState({ step: Math.max(1, s.step - 1), tried: false }),
+      submit: () => Object.keys(this.validate(s)).length ? this.setState({ tried: true }) : this.setState({ done: true }),
+      thanksName: s.name ? ', ' + s.name.split(' ')[0] : '',
+      spaceLower: s.space ? s.space.toLowerCase() : 'project'
+    };
+  }
+}
+</script>
+</body>
+</html>
