@@ -29,4 +29,4 @@ Marketing site for Fitin (fitin.space) — a Pakistani platform connecting homeo
 ## Tooling
 - Use graphify (`graphify-out/`) for codebase questions once code exists; ponytail stays on (minimal code).
 - Design review (plan Task 19) uses taste-skill + ui-ux-pro-max and **stops for user approval** before changing approved designs.
-- Commits end with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+- Commits end with the `Co-Authored-By` line given in the session's attribution reminder (it names whichever model is running).
