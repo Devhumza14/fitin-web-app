@@ -2477,7 +2477,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - HTTP contract used by Task 10: `POST /api/leads` JSON body = form values + `type` + `website` (honeypot, must be `''`) + `elapsedMs` (client-measured ms since page load) + `sourcePath`. Responses: `200 {ok:true}`; `400 {error:'invalid', fieldErrors: Record<string,string>}`; `413`; `415`; `429 {error:'rate_limited'}`; `502 {error:'unavailable'}`.
 - Before writing the migration, invoke the `supabase:supabase-postgres-best-practices` skill.
 
-- [ ] **Step 1: Write the failing rate-limiter test** — `tests/rate-limit.test.ts`
+- [x] **Step 1: Write the failing rate-limiter test** — `tests/rate-limit.test.ts`
 
 ```ts
 import { expect, test } from 'vitest'
@@ -2493,7 +2493,7 @@ test('allows `limit` hits per window per key', () => {
 })
 ```
 
-- [ ] **Step 2: Write the failing API test** — `tests/api-leads.test.ts`
+- [x] **Step 2: Write the failing API test** — `tests/api-leads.test.ts`
 
 ```ts
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
@@ -2613,9 +2613,9 @@ describe('POST /api/leads', () => {
 })
 ```
 
-- [ ] **Step 3: Run to verify failure** — `npx vitest run tests/rate-limit.test.ts tests/api-leads.test.ts` — Expected: FAIL (modules not found).
+- [x] **Step 3: Run to verify failure** — `npx vitest run tests/rate-limit.test.ts tests/api-leads.test.ts` — Expected: FAIL (modules not found).
 
-- [ ] **Step 4: Implement `lib/rate-limit.ts`**
+- [x] **Step 4: Implement `lib/rate-limit.ts`**
 
 ```ts
 // ponytail: in-memory and per-process, so it resets on restart and isn't shared between instances.
@@ -2633,7 +2633,7 @@ export function createRateLimiter({ limit, windowMs }: { limit: number; windowMs
 }
 ```
 
-- [ ] **Step 5: Implement `lib/leads.ts`**
+- [x] **Step 5: Implement `lib/leads.ts`**
 
 ```ts
 import type { LeadInput } from './rules'
@@ -2757,7 +2757,7 @@ export async function sendLeadEmail(l: Lead, env: Env = process.env): Promise<bo
 }
 ```
 
-- [ ] **Step 6: Implement `app/api/leads/route.ts`**
+- [x] **Step 6: Implement `app/api/leads/route.ts`**
 
 ```ts
 import { markEmailSent, saveLead, sendLeadEmail, toLead } from '@/lib/leads'
@@ -2811,9 +2811,9 @@ export async function POST(req: Request) {
 }
 ```
 
-- [ ] **Step 7: Run tests** — `npx vitest run tests/rate-limit.test.ts tests/api-leads.test.ts` — Expected: PASS.
+- [x] **Step 7: Run tests** — `npx vitest run tests/rate-limit.test.ts tests/api-leads.test.ts` — Expected: PASS.
 
-- [ ] **Step 8: Supabase CLI, config and migration**
+- [x] **Step 8: Supabase CLI, config and migration**
 
 ```bash
 npm i -D supabase
@@ -2848,7 +2848,7 @@ revoke all on table public.leads from anon, authenticated;
 
 Apply any changes the best-practices skill flags before committing.
 
-- [ ] **Step 9: Verify the migration locally (Docker; first start downloads images and takes several minutes)**
+- [x] **Step 9: Verify the migration locally (Docker; first start downloads images and takes several minutes)**
 
 ```bash
 npx supabase start
@@ -2864,7 +2864,7 @@ curl -s "$API_URL/rest/v1/leads" -H "apikey: $ANON_KEY"
 ```
 Expected: first returns `[{"id":"…"}]`; second returns an error or `[]` (anon cannot read). If the CLI prints `SERVICE_ROLE_KEY` instead of `SECRET_KEY`, use that value (the code handles legacy JWT keys). Then `npx supabase stop`.
 
-- [ ] **Step 10: Write `.env.example`**
+- [x] **Step 10: Write `.env.example`**
 
 ```bash
 # Public site URL (no trailing slash)
@@ -2878,7 +2878,7 @@ LEADS_FROM="Fitin Website <leads@fitin.space>"
 LEADS_TO=hello@fitin.space
 ```
 
-- [ ] **Step 11: Run all unit tests and commit**
+- [x] **Step 11: Run all unit tests and commit**
 
 Run: `npm test` — Expected: PASS.
 
