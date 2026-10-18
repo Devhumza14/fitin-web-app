@@ -1381,7 +1381,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Produces: `StageBars({ compact?: boolean })` (used again by the OG image in Task 15 only as a visual reference, not imported).
 - Visual source: `design/pages/Main.dc.html` (desktop) and `design/pages/PhoneHome.dc.html` (phone).
 
-- [ ] **Step 1: Write the failing test** — `e2e/home.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/home.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -1411,9 +1411,9 @@ test('phone start pill links to /start', async ({ page, isMobile }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/home.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/home.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `components/stage-bars.tsx`**
+- [x] **Step 3: Write `components/stage-bars.tsx`**
 
 ```tsx
 import { site } from '@/lib/content'
@@ -1438,7 +1438,7 @@ export function StageBars({ compact = false }: { compact?: boolean }) {
 }
 ```
 
-- [ ] **Step 4: Write `app/(site)/page.tsx`**
+- [x] **Step 4: Write `app/(site)/page.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -1646,9 +1646,9 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 5: Run the tests** — `npx playwright test e2e/home.spec.ts` — Expected: PASS. Then open `http://localhost:3100` at 1440 px and 390 px and compare against the canvas Home and Phone · Home artboards; fix spacing drift before committing.
+- [x] **Step 5: Run the tests** — `npx playwright test e2e/home.spec.ts` — Expected: PASS. Then open `http://localhost:3100` at 1440 px and 390 px and compare against the canvas Home and Phone · Home artboards; fix spacing drift before committing.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add app/\(site\)/page.tsx components/stage-bars.tsx e2e/home.spec.ts
