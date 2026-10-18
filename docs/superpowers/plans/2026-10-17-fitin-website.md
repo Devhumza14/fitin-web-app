@@ -2905,7 +2905,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - `ChoiceChips({ legend, name, options, value, onChange, error })` (single, radios) and `MultiChips({ legend, name, options, values, onChange, error })` (checkboxes).
   - `Honeypot({ ref })`, `WhatsAppFallback({ summary })`.
 
-- [ ] **Step 1: Write the failing e2e test** — `e2e/start.spec.ts`
+- [x] **Step 1: Write the failing e2e test** — `e2e/start.spec.ts`
 
 ```ts
 import { expect, test, type Page } from '@playwright/test'
@@ -2982,9 +2982,9 @@ test('offers WhatsApp when the server cannot take the lead', async ({ page }) =>
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/start.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/start.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `lib/whatsapp.ts` and `lib/use-lead-submit.ts`**
+- [x] **Step 3: Write `lib/whatsapp.ts` and `lib/use-lead-submit.ts`**
 
 ```ts
 import site from '@/content/site.json'
@@ -3045,7 +3045,7 @@ export function useLeadSubmit(type: 'project' | 'partner' | 'contact') {
 }
 ```
 
-- [ ] **Step 4: Write `components/form/field.tsx`**
+- [x] **Step 4: Write `components/form/field.tsx`**
 
 ```tsx
 'use client'
@@ -3106,7 +3106,7 @@ export function SelectField({ label, error, hint, optional, children, ...rest }:
 }
 ```
 
-- [ ] **Step 5: Write `components/form/chips.tsx`, `honeypot.tsx`, `whatsapp-fallback.tsx`**
+- [x] **Step 5: Write `components/form/chips.tsx`, `honeypot.tsx`, `whatsapp-fallback.tsx`**
 
 ```tsx
 'use client'
@@ -3185,7 +3185,7 @@ export function WhatsAppFallback({ summary }: { summary: string }) {
 }
 ```
 
-- [ ] **Step 6: Write `components/forms/start-form.tsx`** (visual source `design/pages/Start.dc.html`, `PhoneStart.dc.html`)
+- [x] **Step 6: Write `components/forms/start-form.tsx`** (visual source `design/pages/Start.dc.html`, `PhoneStart.dc.html`)
 
 ```tsx
 'use client'
@@ -3391,7 +3391,7 @@ export function StartForm({ quoteHours }: { quoteHours: number }) {
 }
 ```
 
-- [ ] **Step 7: Write `app/start/page.tsx`** (focused layout: no site header/footer)
+- [x] **Step 7: Write `app/start/page.tsx`** (focused layout: no site header/footer)
 
 ```tsx
 import Link from 'next/link'
@@ -3432,9 +3432,9 @@ export default function StartPage() {
 }
 ```
 
-- [ ] **Step 8: Run tests** — `npx playwright test e2e/start.spec.ts` — Expected: PASS on desktop and phone.
+- [x] **Step 8: Run tests** — `npx playwright test e2e/start.spec.ts` — Expected: PASS on desktop and phone.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add lib/use-lead-submit.ts lib/whatsapp.ts components/form components/forms/start-form.tsx app/start e2e/start.spec.ts
