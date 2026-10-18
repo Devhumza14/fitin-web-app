@@ -5063,7 +5063,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 **Interfaces:**
 - Produces: `PLACEHOLDER` regex, `findPlaceholders(dirs: string[]): string[]`, `checkSite(site): string[]`, CLI `node scripts/launch-check.mjs` (exit 1 on errors; prints warnings for publish counts). npm script `build:launch` = guard then `next build` — the deploy build command.
 
-- [ ] **Step 1: Write the failing test** — `tests/launch-check.test.ts`
+- [x] **Step 1: Write the failing test** — `tests/launch-check.test.ts`
 
 ```ts
 import { mkdtempSync, writeFileSync } from 'node:fs'
@@ -5092,9 +5092,9 @@ test('the real project has no placeholders in shipped code', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx vitest run tests/launch-check.test.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx vitest run tests/launch-check.test.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Implement `scripts/launch-check.mjs`**
+- [x] **Step 3: Implement `scripts/launch-check.mjs`**
 
 ```js
 import { readFileSync, readdirSync, statSync } from 'node:fs'
@@ -5154,9 +5154,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) main()
 
 Add to `package.json` scripts: `"build:launch": "node scripts/launch-check.mjs && next build"`.
 
-- [ ] **Step 4: Run tests** — `npx vitest run tests/launch-check.test.ts` — Expected: PASS. Then `npm run build:launch` — Expected: exits 1 listing `statsVerified` and `legalReviewed` (correct until Fitin signs off).
+- [x] **Step 4: Run tests** — `npx vitest run tests/launch-check.test.ts` — Expected: PASS. Then `npm run build:launch` — Expected: exits 1 listing `statsVerified` and `legalReviewed` (correct until Fitin signs off).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/launch-check.mjs tests/launch-check.test.ts package.json

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "e2e": "playwright test",
-    "check": "npm run lint && npm run test && npm audit --omit=dev --audit-level=high"
+    "check": "npm run lint && npm run test && npm audit --omit=dev --audit-level=high",
+    "build:launch": "node scripts/launch-check.mjs && next build"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
