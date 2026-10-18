@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 const PILLARS = [
   ['bg-navy text-white', 'text-sky', '01 · Design', 'The right designer, quickly', 'Every designer on Fitin is verified, and matched to you by city, style and budget.', 'text-on-navy'],
-  ['bg-teal-dark text-white', 'text-lime-pale', '02 · Build', 'Vendors you can trust', 'Custom furniture and fit-out from vetted vendors, with quotes and timelines in one place.', 'text-[#E2F2F2]'],
+  ['bg-teal-dark text-white', 'text-white', '02 · Build', 'Vendors you can trust', 'Custom furniture and fit-out from vetted vendors, with quotes and timelines in one place.', 'text-white'],
   ['bg-lime text-navy', 'text-navy', '03 · Fit', 'A finished room', 'Delivered, installed and styled, so you walk into a home rather than a pile of boxes.', 'text-[#22300A]'],
 ] as const
 

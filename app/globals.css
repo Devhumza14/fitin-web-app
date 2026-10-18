@@ -45,6 +45,8 @@
   body { font-family: var(--font-sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
   a { color: var(--color-navy); }
   a:hover { color: var(--color-teal-dark); }
+  /* links inside running text must be distinguishable without colour (WCAG 1.4.1) */
+  p a, li a { text-decoration: underline; text-underline-offset: 3px; }
   :focus-visible { outline: 2px solid var(--color-navy); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }

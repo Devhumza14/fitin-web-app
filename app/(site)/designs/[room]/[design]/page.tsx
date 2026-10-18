@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
 
 const STAGES = [
   ['01 Design', 'Site visit, layout and your material board', 'bg-navy text-white', 'text-sky'],
-  ['02 Build', 'Pieces made to measure by verified vendors', 'bg-teal-dark text-white', 'text-lime-pale'],
+  ['02 Build', 'Pieces made to measure by verified vendors', 'bg-teal-dark text-white', 'text-white'],
   ['03 Fit', 'Delivered, installed and styled', 'bg-lime text-navy', 'text-navy'],
 ] as const
 

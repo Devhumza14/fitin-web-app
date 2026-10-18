@@ -5176,7 +5176,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 **Interfaces:**
 - Produces: `npm run lighthouse` (expects a server on `LH_BASE`, default `http://localhost:3100`; exits 1 if any score < 95).
 
-- [ ] **Step 1: Write `e2e/quality.spec.ts`**
+- [x] **Step 1: Write `e2e/quality.spec.ts`**
 
 ```ts
 import AxeBuilder from '@axe-core/playwright'
@@ -5217,7 +5217,7 @@ test('no broken internal links', async ({ page, request }) => {
 })
 ```
 
-- [ ] **Step 2: Write `scripts/lighthouse.mjs`**
+- [x] **Step 2: Write `scripts/lighthouse.mjs`**
 
 ```bash
 npm i -D lighthouse chrome-launcher
@@ -5247,7 +5247,7 @@ process.exit(failed ? 1 : 0)
 
 Add script: `"lighthouse": "node scripts/lighthouse.mjs"`. (Lighthouse's default config is mobile emulation with throttling.)
 
-- [ ] **Step 3: Run the sweep**
+- [x] **Step 3: Run the sweep**
 
 ```bash
 npx playwright test e2e/quality.spec.ts --project=desktop
@@ -5257,9 +5257,9 @@ INCLUDE_DRAFTS=1 npm run build && (npx next start -p 3100 &) && sleep 5 && npm r
 
 Expected: both Playwright runs PASS; Lighthouse prints `ok` for all 5 pages. For each failure: read the audit, fix the cause (contrast, image `sizes`, missing labels, LCP image priority, heading order), add or adjust a test if logic changed, and re-run until clean. Do not lower thresholds.
 
-- [ ] **Step 4: Run every check together** — `npm run check && npm run e2e` — Expected: PASS.
+- [x] **Step 4: Run every check together** — `npm run check && npm run e2e` — Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add e2e/quality.spec.ts scripts/lighthouse.mjs package.json package-lock.json

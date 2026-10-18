@@ -1,8 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ChoiceChips } from '@/components/form/chips'
 import { ErrorText, TextField } from '@/components/form/field'
 import { Honeypot } from '@/components/form/honeypot'
@@ -34,12 +33,18 @@ type Values = {
 const pick = <T extends readonly string[]>(list: T, v: string | null) => (v && (list as readonly string[]).includes(v) ? v : undefined)
 
 export function StartForm({ quoteHours }: { quoteHours: number }) {
-  const params = useSearchParams()
-  const [values, setValues] = useState<Values>(() => ({
-    space: pick(SPACES, params.get('space')), city: pick(CITIES, params.get('city')),
-    service: pick(SERVICE_OPTIONS, params.get('service')), size: '', name: '', phone: '', email: '',
-    whatsappUpdates: true, design: /^[a-z0-9-]{1,100}$/.test(params.get('design') ?? '') ? params.get('design')! : undefined,
-  }))
+  const [values, setValues] = useState<Values>({ size: '', name: '', phone: '', email: '', whatsappUpdates: true })
+  // Prefill from the query string after mount. Reading it during render (useSearchParams) would opt this static page
+  // out of server rendering, delaying the first paint until the JS has loaded.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const design = params.get('design') ?? ''
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-off prefill from the URL
+    setValues((v) => ({
+      ...v, space: pick(SPACES, params.get('space')), city: pick(CITIES, params.get('city')),
+      service: pick(SERVICE_OPTIONS, params.get('service')), design: /^[a-z0-9-]{1,100}$/.test(design) ? design : undefined,
+    }))
+  }, [])
   const [step, setStep] = useState(1)
   const [tried, setTried] = useState(false)
   const { status, submit, serverErrors, honeypot } = useLeadSubmit('project')

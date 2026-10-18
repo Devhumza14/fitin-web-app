@@ -37,7 +37,7 @@ export default async function RoomPage({ params }: Props) {
         <p className="text-ink-2">Ideas to start from. Your designer adapts every one to your space.</p>
       </div>
       <RoomTabs active={room.slug} />
-      <Suspense fallback={<DesignGrid cards={cards} />}>
+      <Suspense fallback={<DesignGrid cards={cards} preloadFirst={2} />}>
         <ExploreGrid cards={cards} />
       </Suspense>
     </div>

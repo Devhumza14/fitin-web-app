@@ -10,7 +10,8 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "check": "npm run lint && npm run test && npm audit --omit=dev --audit-level=high",
-    "build:launch": "node scripts/launch-check.mjs && next build"
+    "build:launch": "node scripts/launch-check.mjs && next build",
+    "lighthouse": "node scripts/lighthouse.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -31,8 +32,10 @@
     "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chrome-launcher": "^1.2.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
+    "lighthouse": "^13.5.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^5.0.5"

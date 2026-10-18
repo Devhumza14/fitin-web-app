@@ -40,7 +40,7 @@ export function ExploreGrid({ cards }: { cards: CardDesign[] }) {
         <span className="ml-auto text-sm text-ink-2" aria-live="polite">{shown.length} designs · every design is 100% customisable</span>
       </div>
       {shown.length ? (
-        <DesignGrid cards={shown} />
+        <DesignGrid cards={shown} preloadFirst={2} />
       ) : (
         <EmptyState title="No designs match yet" text="Tell us about your space and a verified designer will create one around it." />
       )}

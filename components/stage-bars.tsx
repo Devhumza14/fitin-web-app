@@ -2,7 +2,7 @@ import { site } from '@/lib/content'
 
 const STAGES = [
   { n: '01', label: 'Design', text: 'Matched with verified designers', box: 'w-full bg-navy text-white', kicker: 'text-sky' },
-  { n: '02', label: 'Build', text: 'Custom furniture, made to measure', box: 'w-[88%] bg-teal-dark text-white', kicker: 'text-lime-pale' },
+  { n: '02', label: 'Build', text: 'Custom furniture, made to measure', box: 'w-[88%] bg-teal-dark text-white', kicker: 'text-white' },
   { n: '03', label: 'Fit', text: `Installed in ${site.claims.installDays} days`, box: 'w-[76%] bg-lime text-navy', kicker: 'text-navy' },
 ] as const
 

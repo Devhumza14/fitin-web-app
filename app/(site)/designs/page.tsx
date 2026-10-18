@@ -21,7 +21,7 @@ export default function DesignsPage() {
         <p className="text-ink-2">Every design adapts to your room, your materials and your budget.</p>
       </div>
       <RoomTabs active="all" />
-      <Suspense fallback={<DesignGrid cards={cards} />}>
+      <Suspense fallback={<DesignGrid cards={cards} preloadFirst={2} />}>
         <ExploreGrid cards={cards} />
       </Suspense>
     </div>

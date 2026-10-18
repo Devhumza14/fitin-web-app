@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Suspense } from 'react'
 import { StartForm } from '@/components/forms/start-form'
 import { Logo } from '@/components/header'
 import { WhatsAppIcon } from '@/components/icons'
@@ -27,9 +26,7 @@ export default function StartPage() {
         </div>
       </header>
       <main className="mx-auto max-w-[1160px] px-5 pb-20 pt-6 md:px-10 md:pt-12">
-        <Suspense fallback={<p className="rounded-panel bg-white p-10 text-2xl font-bold text-navy">Which space are we working on?</p>}>
-          <StartForm quoteHours={site.claims.quoteHours} />
-        </Suspense>
+        <StartForm quoteHours={site.claims.quoteHours} />
       </main>
     </div>
   )

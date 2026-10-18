@@ -23,6 +23,7 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: { inlineCss: true }, // removes the render-blocking stylesheet request; the CSS is only ~10 KB
   images: { formats: ['image/avif', 'image/webp'] },
   async headers() {
     return [{

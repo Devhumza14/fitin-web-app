@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+// The strict CSP forbids eval; zod's JIT compiler probes for it and trips a CSP violation report.
+z.config({ jitless: true })
+
 export const CITIES = ['Karachi', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan'] as const
 export const SPACES = ['Living room', 'Kitchen', 'Bedroom', 'Bathroom', 'Wardrobe', 'Home office', 'Dining area', 'Full home', 'Commercial'] as const
 export const SERVICE_OPTIONS = ['Modular kitchen & wardrobe', 'Full-home interior', 'Signature', 'Renovation', 'Furniture only'] as const
