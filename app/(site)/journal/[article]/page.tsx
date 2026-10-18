@@ -6,9 +6,11 @@ import { AdSlot } from '@/components/ad-slot'
 import { formatDate } from '@/components/article-card'
 import { DesignGrid } from '@/components/design-card'
 import { toCard } from '@/lib/cards'
+import { JsonLd } from '@/components/json-ld'
 import { buttonClass } from '@/components/ui'
 import { getDesigns, getService, site } from '@/lib/content'
 import { getArticle, getArticles } from '@/lib/journal'
+import { articleLd, breadcrumbLd } from '@/lib/jsonld'
 import { pageMetadata } from '@/lib/seo'
 
 export const dynamicParams = false
@@ -33,6 +35,8 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <article className="wrap flex max-w-[760px] flex-col gap-6 pb-20 pt-8 md:pt-12">
+      <JsonLd data={articleLd(meta)} />
+      <JsonLd data={breadcrumbLd([['Journal', '/journal'], [meta.title, `/journal/${meta.slug}`]])} />
       {site.adsenseId && (
         <Script async strategy="afterInteractive" crossOrigin="anonymous"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseId}`} />

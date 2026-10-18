@@ -4590,7 +4590,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Consumes: `site, getDesigns, designsInRoom, ROOMS, getServices, type Service` (`lib/content`), `getArticles, type ArticleMeta` (`lib/journal`), `SITE_URL`.
 - Produces: `organizationLd()`, `breadcrumbLd(items: [name: string, path: string][])`, `articleLd(m: ArticleMeta)`, `serviceLd(s: Service)`, `jsonLdString(data: object): string`, `<JsonLd data={...} />`, `ogImage({ title, kicker?, image }): Promise<ImageResponse>`, `OG_SIZE`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 `tests/jsonld.test.ts`:
 ```ts
@@ -4655,9 +4655,9 @@ test('pages carry canonical, JSON-LD and OG tags', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx vitest run tests/jsonld.test.ts && npx playwright test e2e/seo.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx vitest run tests/jsonld.test.ts && npx playwright test e2e/seo.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `lib/jsonld.ts` and `components/json-ld.tsx`**
+- [x] **Step 3: Write `lib/jsonld.ts` and `components/json-ld.tsx`**
 
 ```ts
 import { type Service, site } from './content'
@@ -4721,14 +4721,14 @@ export const JsonLd = ({ data }: { data: object }) => (
 )
 ```
 
-- [ ] **Step 4: Add JSON-LD to pages**
+- [x] **Step 4: Add JSON-LD to pages**
 - `app/(site)/layout.tsx`: render `<JsonLd data={organizationLd()} />` before `<Header />`.
 - Room page: `<JsonLd data={breadcrumbLd([['Explore', '/designs'], [room.label, `/designs/${room.slug}`]])} />`.
 - Design page: `<JsonLd data={breadcrumbLd([['Explore', '/designs'], [room.label, `/designs/${room.slug}`], [d.title, `/designs/${room.slug}/${d.slug}`]])} />`.
 - Service page: `<JsonLd data={serviceLd(s)} />` and `<JsonLd data={breadcrumbLd([['Services', '/services'], [s.name, `/services/${s.slug}`]])} />`.
 - Article page: `<JsonLd data={articleLd(meta)} />` and `<JsonLd data={breadcrumbLd([['Journal', '/journal'], [meta.title, `/journal/${meta.slug}`]])} />`.
 
-- [ ] **Step 5: Write `app/sitemap.ts`, `app/robots.ts`, `app/ads.txt/route.ts`**
+- [x] **Step 5: Write `app/sitemap.ts`, `app/robots.ts`, `app/ads.txt/route.ts`**
 
 ```ts
 // app/sitemap.ts
@@ -4774,7 +4774,7 @@ export function GET() {
 }
 ```
 
-- [ ] **Step 6: OG images and icons**
+- [x] **Step 6: OG images and icons**
 
 Check the font file name first: `ls node_modules/@fontsource/figtree/files | grep 'latin-700-normal.woff$'` — use the printed name below.
 
@@ -4895,9 +4895,9 @@ export default function AppleIcon() {
 
 Remove any scaffolded `app/favicon.ico` so the SVG icon is used.
 
-- [ ] **Step 7: Run tests** — `npx vitest run && npx playwright test e2e/seo.spec.ts` — Expected: PASS. Open `/opengraph-image` and one article OG image in the browser and compare with the canvas "Link preview image" artboard.
+- [x] **Step 7: Run tests** — `npx vitest run && npx playwright test e2e/seo.spec.ts` — Expected: PASS. Open `/opengraph-image` and one article OG image in the browser and compare with the canvas "Link preview image" artboard.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add lib/jsonld.ts lib/og.tsx components/json-ld.tsx app tests/jsonld.test.ts e2e/seo.spec.ts
@@ -4918,7 +4918,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Consumes: `site.gaId`.
 - Produces: response headers on every route; GA4 only when `site.gaId` is set, with Consent Mode v2 defaults (denied in EEA/UK/CH, granted elsewhere) set before GA loads.
 
-- [ ] **Step 1: Write the failing test** — `e2e/headers.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/headers.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -4945,9 +4945,9 @@ test('no CSP violations while using the site', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/headers.spec.ts` — Expected: FAIL (headers missing).
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/headers.spec.ts` — Expected: FAIL (headers missing).
 
-- [ ] **Step 3: Add headers to `next.config.ts`**
+- [x] **Step 3: Add headers to `next.config.ts`**
 
 ```ts
 import createMDX from '@next/mdx'
@@ -4996,7 +4996,7 @@ export default createMDX({})(nextConfig)
 
 `'unsafe-eval'` is added only in `next dev` (React Refresh needs it). Do not add `upgrade-insecure-requests` — it breaks `next start` over `http://localhost` and HSTS already covers production.
 
-- [ ] **Step 4: Add analytics with consent defaults to `app/layout.tsx`**
+- [x] **Step 4: Add analytics with consent defaults to `app/layout.tsx`**
 
 ```bash
 npm i @next/third-parties
@@ -5041,9 +5041,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-- [ ] **Step 5: Run tests** — `npx playwright test e2e/headers.spec.ts && npm run e2e` — Expected: PASS (full suite, to catch any CSP-blocked asset).
+- [x] **Step 5: Run tests** — `npx playwright test e2e/headers.spec.ts && npm run e2e` — Expected: PASS (full suite, to catch any CSP-blocked asset).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add next.config.ts app/layout.tsx e2e/headers.spec.ts package.json package-lock.json

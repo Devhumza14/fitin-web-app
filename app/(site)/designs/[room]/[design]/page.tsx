@@ -4,10 +4,12 @@ import { notFound } from 'next/navigation'
 import { DesignGrid } from '@/components/design-card'
 import { toCard } from '@/lib/cards'
 import { DesignCustomiser } from '@/components/design-customiser'
+import { JsonLd } from '@/components/json-ld'
 import { PlayIcon, WhatsAppIcon } from '@/components/icons'
 import { SaveHeart } from '@/components/save-heart'
 import { buttonClass } from '@/components/ui'
 import { getDesign, getDesigns, getRoom, similarDesigns, site } from '@/lib/content'
+import { breadcrumbLd } from '@/lib/jsonld'
 import { pageMetadata } from '@/lib/seo'
 
 export const dynamicParams = false
@@ -37,6 +39,7 @@ export default async function DesignPage({ params }: Props) {
 
   return (
     <div className="wrap flex max-w-[1180px] flex-col gap-7 pb-28 pt-7 md:pb-20">
+      <JsonLd data={breadcrumbLd([['Explore', '/designs'], [room.label, `/designs/${room.slug}`], [d.title, `/designs/${room.slug}/${d.slug}`]])} />
       <nav aria-label="Breadcrumb" className="flex gap-2 text-sm text-muted">
         <Link href="/designs" className="text-muted">Explore</Link><span aria-hidden>/</span>
         <Link href={`/designs/${room.slug}`} className="text-muted">{room.label}</Link>

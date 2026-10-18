@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
+import { JsonLd } from '@/components/json-ld'
 import { DesignGrid } from '@/components/design-card'
 import { toCard } from '@/lib/cards'
 import { ExploreGrid } from '@/components/explore-grid'
 import { RoomTabs } from '@/components/room-tabs'
 import { ROOMS, designsInRoom, getRoom } from '@/lib/content'
+import { breadcrumbLd } from '@/lib/jsonld'
 import { pageMetadata } from '@/lib/seo'
 
 export const dynamicParams = false
@@ -29,6 +31,7 @@ export default async function RoomPage({ params }: Props) {
   const cards = designsInRoom(room.slug).map(toCard)
   return (
     <div className="wrap flex flex-col gap-7 pb-20 pt-10">
+      <JsonLd data={breadcrumbLd([['Explore', '/designs'], [room.label, `/designs/${room.slug}`]])} />
       <div className="flex flex-col gap-2">
         <h1 className="text-[clamp(30px,4vw,44px)] font-bold tracking-[-1.2px] text-navy">{room.single} designs</h1>
         <p className="text-ink-2">Ideas to start from. Your designer adapts every one to your space.</p>

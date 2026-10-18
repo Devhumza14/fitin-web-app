@@ -2,8 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Calculator } from '@/components/calculator'
+import { JsonLd } from '@/components/json-ld'
 import { Bar, CheckList, buttonClass } from '@/components/ui'
 import { getService, getServices, site } from '@/lib/content'
+import { breadcrumbLd, serviceLd } from '@/lib/jsonld'
 import { pageMetadata } from '@/lib/seo'
 
 export const dynamicParams = false
@@ -23,6 +25,8 @@ export default async function ServicePage({ params }: Props) {
   const others = getServices().filter((x) => x.slug !== s.slug)
   return (
     <>
+      <JsonLd data={serviceLd(s)} />
+      <JsonLd data={breadcrumbLd([['Services', '/services'], [s.name, `/services/${s.slug}`]])} />
       <section className="wrap flex flex-wrap items-center gap-14 pb-16 pt-10 md:pt-16">
         <div className="flex min-w-0 flex-[1_1_440px] flex-col gap-5">
           <nav aria-label="Breadcrumb" className="text-sm text-muted"><Link href="/services" className="text-muted">Services</Link></nav>
