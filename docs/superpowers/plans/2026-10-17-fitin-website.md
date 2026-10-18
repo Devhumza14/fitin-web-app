@@ -81,7 +81,7 @@ DEPLOY.md  .env.example
 **Interfaces:**
 - Produces: Tailwind token classes used by every later task — colours `navy navy-2 teal teal-dark lime ink ink-2 muted hairline line surface navy-soft teal-soft lime-soft sky lime-pale on-navy error`; radii `rounded-btn rounded-card rounded-panel rounded-feature`; `shadow-float`; utility `wrap` (centred 1360 px container with 20/40 px gutters). Font CSS variable `--font-figtree`. npm scripts `dev build start lint test e2e`. Images at `/images/<name>.jpg`.
 
-- [ ] **Step 1: Scaffold into a temp folder (the repo root is not empty) and move it in**
+- [x] **Step 1: Scaffold into a temp folder (the repo root is not empty) and move it in**
 
 ```bash
 cd "/home/humza/Desktop/Fitin website"
@@ -94,7 +94,7 @@ sort -u .gitignore -o .gitignore
 
 Expected: `package.json`, `app/`, `node_modules/` now at the repo root; `design/` and `docs/` untouched.
 
-- [ ] **Step 2: Install dev tooling and copy images**
+- [x] **Step 2: Install dev tooling and copy images**
 
 ```bash
 npm i zod@4
@@ -103,7 +103,7 @@ npx playwright install chromium
 mkdir -p public/images && cp design/assets/*.jpg public/images/ && cp design/assets/fitin-logo.png public/images/fitin-logo.png
 ```
 
-- [ ] **Step 3: Replace `app/globals.css` with the design tokens**
+- [x] **Step 3: Replace `app/globals.css` with the design tokens**
 
 ```css
 @import "tailwindcss";
@@ -160,7 +160,7 @@ mkdir -p public/images && cp design/assets/*.jpg public/images/ && cp design/ass
 }
 ```
 
-- [ ] **Step 4: Write `app/layout.tsx`**
+- [x] **Step 4: Write `app/layout.tsx`**
 
 ```tsx
 import type { Metadata, Viewport } from 'next'
@@ -187,7 +187,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-- [ ] **Step 5: Temporary home page `app/(site)/page.tsx`** (replaced in Task 6)
+- [x] **Step 5: Temporary home page `app/(site)/page.tsx`** (replaced in Task 6)
 
 ```tsx
 export default function Home() {
@@ -199,7 +199,7 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 6: Configure Next, Vitest and Playwright**
+- [x] **Step 6: Configure Next, Vitest and Playwright**
 
 `next.config.ts`:
 ```ts
@@ -254,7 +254,7 @@ Add scripts to `package.json` (keep the scaffolded ones):
 "check": "npm run lint && npm run test && npm audit --omit=dev --audit-level=high"
 ```
 
-- [ ] **Step 7: Write the smoke tests**
+- [x] **Step 7: Write the smoke tests**
 
 `tests/smoke.test.ts`:
 ```ts
@@ -281,17 +281,17 @@ test('home renders the hero heading in Figtree', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 8: Run both suites**
+- [x] **Step 8: Run both suites**
 
 Run: `npm test && npm run e2e`
 Expected: Vitest 1 passed; Playwright 2 passed (desktop + phone).
 
-- [ ] **Step 9: Index the codebase and get tool recommendations**
+- [x] **Step 9: Index the codebase and get tool recommendations**
 
 - Invoke the `graphify` skill on the repo root, excluding `node_modules`, `.next`, `design/`. Keep `graphify-out/` (git-ignored) for later queries.
 - Invoke `claude-code-setup:claude-automation-recommender`. Show the user its recommendations; install only the ones they approve. Do not change project code in this step.
 
-- [ ] **Step 10: Commit**
+- [x] **Step 10: Commit**
 
 ```bash
 git add -A

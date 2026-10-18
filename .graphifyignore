@@ -1,0 +1,6 @@
+design/
+docs/
+.next/
+node_modules/
+test-results/
+public/images/
