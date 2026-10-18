@@ -25,6 +25,17 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: { inlineCss: true }, // removes the render-blocking stylesheet request; the CSS is only ~10 KB
   images: { formats: ['image/avif', 'image/webp'] },
+  async redirects() {
+    return [
+      { source: '/:path*', has: [{ type: 'host', value: 'www.fitin.space' }], destination: 'https://fitin.space/:path*', permanent: true },
+      { source: '/services/modular', destination: '/services/modular-kitchens-wardrobes', permanent: true },
+      { source: '/services/full-home', destination: '/services/full-home-interiors', permanent: true },
+      { source: '/consultation', destination: '/start', permanent: true },
+      { source: '/calculator', destination: '/kitchen-cost-calculator', permanent: true },
+      { source: '/explore', destination: '/designs', permanent: true },
+      { source: '/packages', destination: '/services', permanent: true },
+    ]
+  },
   async headers() {
     return [{
       source: '/:path*',

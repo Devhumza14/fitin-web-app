@@ -5323,7 +5323,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 **Interfaces:**
 - Produces: permanent redirects for old fitin.space URLs and `www` → apex; the deploy runbook. Actual deployment happens later with the `hostinger:deploy-to-hosting` skill when the user says go.
 
-- [ ] **Step 1: Write the failing test** — `tests/redirects.test.ts`
+- [x] **Step 1: Write the failing test** — `tests/redirects.test.ts`
 
 ```ts
 import { expect, test } from 'vitest'
@@ -5343,9 +5343,9 @@ test('old URLs and www redirect permanently', async () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx vitest run tests/redirects.test.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx vitest run tests/redirects.test.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Add redirects to `nextConfig` in `next.config.ts`**
+- [x] **Step 3: Add redirects to `nextConfig` in `next.config.ts`**
 
 ```ts
   async redirects() {
@@ -5363,7 +5363,7 @@ test('old URLs and www redirect permanently', async () => {
 
 Run: `npx vitest run tests/redirects.test.ts` — Expected: PASS. Before deploy, crawl the live old site's sitemap (if any) and add redirects for every other indexed URL.
 
-- [ ] **Step 4: Write `DEPLOY.md`** with these sections, each as numbered steps:
+- [x] **Step 4: Write `DEPLOY.md`** with these sections, each as numbered steps:
   1. **Accounts Fitin creates:** Supabase project (region closest to Pakistan, e.g. Mumbai `ap-south-1`), Resend, Google Analytics 4 property (copy `G-…` to `site.json.gaId`), Google Search Console, AdSense (later).
   2. **Supabase:** `npx supabase login` → `npx supabase link --project-ref <ref>` → `npx supabase db push` → copy Project URL and the **secret** key to Hostinger env.
   3. **Resend:** add domain `fitin.space`; add the DNS records Resend shows (SPF, DKIM, return-path) in **Namecheap → Advanced DNS**; wait for "Verified"; set `LEADS_FROM="Fitin Website <leads@fitin.space>"`.
@@ -5374,7 +5374,7 @@ Run: `npx vitest run tests/redirects.test.ts` — Expected: PASS. Before deploy,
   8. **AdSense (after ~20 published articles):** add site, put the publisher id in `site.json.adsenseId`, create one display ad unit and put its id in `site.json.adSlot`, enable **Privacy & messaging → European regulations message**, redeploy, confirm `/ads.txt`.
   9. **Launch checklist:** `statsVerified` and `legalReviewed` true; real designs set to `published`; drafts reviewed; `npm run check && npm run e2e` green.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add next.config.ts tests/redirects.test.ts DEPLOY.md
