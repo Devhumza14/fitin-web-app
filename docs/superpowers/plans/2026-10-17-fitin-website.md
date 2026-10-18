@@ -2220,7 +2220,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Produces: `Calculator()` client component (self-contained card with slider and result).
 - Visual source: `design/pages/Services.dc.html`, `PhoneServices.dc.html`.
 
-- [ ] **Step 1: Write the failing test** — `e2e/services.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/services.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -2254,9 +2254,9 @@ test('modular service page embeds the calculator', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/services.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/services.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `components/calculator.tsx`**
+- [x] **Step 3: Write `components/calculator.tsx`**
 
 ```tsx
 'use client'
@@ -2293,7 +2293,7 @@ export function Calculator() {
 }
 ```
 
-- [ ] **Step 4: Write `app/(site)/services/page.tsx`** (alternating rows per design)
+- [x] **Step 4: Write `app/(site)/services/page.tsx`** (alternating rows per design)
 
 ```tsx
 import Image from 'next/image'
@@ -2349,7 +2349,7 @@ export default function ServicesPage() {
 
 `gap-4.5` is a valid Tailwind v4 spacing step (18 px).
 
-- [ ] **Step 5: Write `app/(site)/services/[service]/page.tsx` and the calculator page**
+- [x] **Step 5: Write `app/(site)/services/[service]/page.tsx` and the calculator page**
 
 ```tsx
 import Image from 'next/image'
@@ -2449,9 +2449,9 @@ export default function CalculatorPage() {
 }
 ```
 
-- [ ] **Step 6: Run the tests** — `npx playwright test e2e/services.spec.ts && npx vitest run` — Expected: PASS.
+- [x] **Step 6: Run the tests** — `npx playwright test e2e/services.spec.ts && npx vitest run` — Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add components/calculator.tsx app/\(site\)/services app/\(site\)/kitchen-cost-calculator e2e/services.spec.ts
