@@ -110,7 +110,7 @@ export default function Home() {
                 <Image src={r.image} alt={r.alt} fill sizes="(min-width: 768px) 25vw, 240px" className="object-cover" />
                 {'badge' in r && <span className="absolute left-3.5 top-3.5 rounded-full bg-white px-3 py-1.5 text-xs font-bold shadow-[0_2px_8px_rgb(14_35_64/0.1)]">{r.badge}</span>}
               </span>
-              <span className="flex justify-between gap-3 px-0.5">
+              <span className="flex flex-col gap-0.5 px-0.5 md:flex-row md:justify-between md:gap-3">
                 <span className="text-[17px] font-bold">{roomLabel(r.slug)}</span>
                 <span className="text-sm text-ink-2">{site.roomCounts[r.slug]} designs</span>
               </span>

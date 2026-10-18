@@ -16,7 +16,6 @@ export function DesignCard({ d, sizes = '(min-width: 1024px) 25vw, (min-width: 6
             <span className="whitespace-nowrap text-sm text-ink-2">{d.city}</span>
           </span>
           <span className="text-sm text-ink-2">{d.roomLabel} · {d.style}</span>
-          <span className="mt-1 text-sm"><b>Free quote</b> in {d.quoteHours} hours</span>
         </span>
       </Link>
       {d.badge && (

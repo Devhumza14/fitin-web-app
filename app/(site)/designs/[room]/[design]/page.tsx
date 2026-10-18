@@ -60,7 +60,7 @@ export default async function DesignPage({ params }: Props) {
         </div>
         <div className="grid grid-cols-2 gap-2.5">
           {d.finishes && (
-            <div className="flex min-h-[200px] flex-col justify-between gap-3 bg-surface p-5">
+            <div className="flex min-h-[150px] flex-col justify-between gap-3 bg-surface p-5">
               <span className="text-[13px] font-bold uppercase tracking-[1px] text-muted">Material board</span>
               <div className="grid grid-cols-2 gap-2">
                 {[...d.finishes.upholstery.slice(0, 2), ...d.finishes.wood.slice(0, 2)].map((s) => (
@@ -69,11 +69,11 @@ export default async function DesignPage({ params }: Props) {
               </div>
             </div>
           )}
-          <div className="flex min-h-[200px] flex-col justify-between gap-3 bg-teal-soft p-5">
+          <div className="flex min-h-[150px] flex-col justify-between gap-3 bg-teal-soft p-5">
             <span className="text-[13px] font-bold uppercase tracking-[1px] text-[#0E4F51]">Made for you</span>
             <span className="text-sm font-semibold text-navy">Sizes, fabrics and finishes adjusted to your room and budget.</span>
           </div>
-          <div className={`flex min-h-[200px] flex-col justify-between gap-3 bg-navy p-5 text-white ${d.finishes ? 'col-span-2' : ''}`}>
+          <div className={`flex min-h-[150px] flex-col justify-between gap-3 bg-navy p-5 text-white ${d.finishes ? 'col-span-2' : ''}`}>
             <span className="flex size-11 items-center justify-center rounded-full bg-lime text-navy"><PlayIcon className="size-[18px]" /></span>
             <span className="text-[15px] font-semibold leading-snug">3D walkthrough of your own room, after your consultation</span>
           </div>
