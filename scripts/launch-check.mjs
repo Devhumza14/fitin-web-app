@@ -39,6 +39,7 @@ function publishedCount(dir, pattern) {
 function main() {
   const site = JSON.parse(readFileSync('content/site.json', 'utf8'))
   const errors = [...findPlaceholders(['app', 'components', 'content']).map((h) => `placeholder: ${h}`), ...checkSite(site)]
+  if (process.env.ALLOW_INDEXING !== '1') errors.push('env: set ALLOW_INDEXING=1 so search engines may index the live site (it is hidden by default).')
   const designs = publishedCount('content/designs', /"status":\s*"published"/)
   const articles = publishedCount('content/journal', /status:\s*'published'/)
   if (designs === 0) console.warn('warning: no published designs — /designs will show an empty state.')

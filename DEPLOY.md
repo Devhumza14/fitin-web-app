@@ -32,7 +32,7 @@ Nothing below has been run yet. Do the steps in order.
 2. Connect the Git repository.
 3. Build command: `npm ci && npm run build:launch`
 4. Start command: `npm start`
-5. Environment variables: everything in `.env.example` (`NEXT_PUBLIC_SITE_URL`, `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `RESEND_API_KEY`, `LEADS_FROM`, `LEADS_TO`). `NEXT_PUBLIC_` values are read at build time, so rebuild after changing them.
+5. Environment variables: everything in `.env.example` (`ALLOW_INDEXING=1` (the site is hidden from search engines without it, and `build:launch` fails), `NEXT_PUBLIC_SITE_URL`, `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `RESEND_API_KEY`, `LEADS_FROM`, `LEADS_TO`). `NEXT_PUBLIC_` values are read at build time, so rebuild after changing them.
 6. Use the `hostinger:deploy-to-hosting` skill to run the deploy and verify the live site.
 
 `build:launch` fails on purpose until `content/site.json` has `statsVerified: true` and `legalReviewed: true`, and while any `[Bracketed Placeholder]` is left in `app/`, `components/` or `content/`.

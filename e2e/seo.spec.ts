@@ -8,10 +8,10 @@ test('sitemap lists key routes and skips the API', async ({ request }) => {
   expect(xml).not.toContain('/api/')
 })
 
-test('robots blocks /api/ and points to the sitemap', async ({ request }) => {
-  const txt = await (await request.get('/robots.txt')).text()
-  expect(txt).toContain('Disallow: /api/')
-  expect(txt).toContain('Sitemap: https://fitin.space/sitemap.xml')
+test('site is hidden from search engines unless ALLOW_INDEXING=1', async ({ request }) => {
+  const res = await request.get('/robots.txt')
+  expect(await res.text()).toMatch(/^Disallow: \/$/m)
+  expect((await request.get('/')).headers()['x-robots-tag']).toBe('noindex, nofollow')
 })
 
 test('ads.txt is 404 until a publisher id is configured', async ({ request }) => {
