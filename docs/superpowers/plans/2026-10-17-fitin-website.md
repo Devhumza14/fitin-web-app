@@ -316,7 +316,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - Step schemas: `projectStep1, projectStep2, projectStep3, projectStep4`; full schemas `projectSchema, partnerSchema, contactSchema`; API schema `leadSchema` (discriminated on `type`); types `ProjectInput, PartnerInput, ContactInput, LeadInput`.
   - `errorMap(error: z.ZodError): Record<string, string>` (first message per field), `fieldErrors(schema: z.ZodType, data: unknown): Record<string, string>`.
 
-- [ ] **Step 1: Write the failing tests** — `tests/rules.test.ts`
+- [x] **Step 1: Write the failing tests** — `tests/rules.test.ts`
 
 ```ts
 import { describe, expect, test } from 'vitest'
@@ -400,12 +400,12 @@ test('leadSchema discriminates on type and strips unknown keys', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npx vitest run tests/rules.test.ts`
 Expected: FAIL — `Cannot find module '@/lib/rules'`.
 
-- [ ] **Step 3: Implement `lib/rules.ts`**
+- [x] **Step 3: Implement `lib/rules.ts`**
 
 ```ts
 import { z } from 'zod'
@@ -554,12 +554,12 @@ export function fieldErrors(schema: z.ZodType, data: unknown): Record<string, st
 }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `npx vitest run tests/rules.test.ts`
 Expected: PASS (all). If a `z.enum` message test fails because Zod reports `invalid_type` for `undefined` with a default message, keep `{ error: MSG.x }` and pass `''` instead of omitting the key in that test — then re-run; the UI always sends every key.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/rules.ts tests/rules.test.ts
