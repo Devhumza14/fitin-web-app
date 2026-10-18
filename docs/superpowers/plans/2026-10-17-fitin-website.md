@@ -4566,10 +4566,10 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 
 `related` maps to `relatedServices` / `relatedDesigns` in `meta`.
 
-- [ ] **Step 1: Write the 11 MDX files** following the rules and table above.
-- [ ] **Step 2: Validate** — `INCLUDE_DRAFTS=1 npm run build` — Expected: build succeeds (an invalid `meta` throws with the file name). Then `npx playwright test e2e/journal.spec.ts` — Expected: PASS.
-- [ ] **Step 3: Self-check each article** against the writing rules: word count (`wc -w content/journal/*.mdx`), two `<AdBreak />` each (`grep -c '<AdBreak />' content/journal/*.mdx` → 2 per file), no numbers presented as market facts. Fix any that fail.
-- [ ] **Step 4: Commit**
+- [x] **Step 1: Write the 11 MDX files** following the rules and table above.
+- [x] **Step 2: Validate** — `INCLUDE_DRAFTS=1 npm run build` — Expected: build succeeds (an invalid `meta` throws with the file name). Then `npx playwright test e2e/journal.spec.ts` — Expected: PASS.
+- [x] **Step 3: Self-check each article** against the writing rules: word count (`wc -w content/journal/*.mdx`), two `<AdBreak />` each (`grep -c '<AdBreak />' content/journal/*.mdx` → 2 per file), no numbers presented as market facts. Fix any that fail.
+- [x] **Step 4: Commit**
 
 ```bash
 git add content/journal
