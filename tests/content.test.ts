@@ -45,3 +45,12 @@ test('8 rooms, 4 services, valid site data', () => {
   expect(site.email).toBe('hello@fitin.space')
   expect(site.cities).toHaveLength(6)
 })
+
+import { readFileSync } from 'node:fs'
+import { DESIGN_STYLES } from '@/lib/content'
+import { CITIES } from '@/lib/rules'
+
+test('explore-grid filter options match the content enums', () => {
+  const src = readFileSync('components/explore-grid.tsx', 'utf8')
+  for (const s of [...DESIGN_STYLES, ...CITIES]) expect(src).toContain(`'${s}'`)
+})

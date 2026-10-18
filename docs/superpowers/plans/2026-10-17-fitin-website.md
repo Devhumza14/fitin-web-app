@@ -1672,7 +1672,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Visual source: `design/pages/Explore.dc.html`, `Detail.dc.html`, `PhoneExplore.dc.html`, `PhoneDetail.dc.html`.
 - Deviation from design: the Explore "Budget" filter is dropped — designs carry no price data, so it would filter nothing.
 
-- [ ] **Step 1: Write the failing test** — `e2e/designs.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/designs.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -1722,9 +1722,9 @@ for (const url of ['/designs/kichens', '/designs/kitchens/nope', '/designs/livin
 
 Counts come from Task 4's data: 3 Japandi Minimal designs (warm-timber-bedroom, sunlit-study-nook, built-in-wardrobe-wall) and 4 kitchens.
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/designs.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/designs.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `components/save-heart.tsx`**
+- [x] **Step 3: Write `components/save-heart.tsx`**
 
 ```tsx
 'use client'
@@ -1769,7 +1769,7 @@ export function SaveHeart({ id, title, variant = 'overlay' }: { id: string; titl
 }
 ```
 
-- [ ] **Step 4: Write `components/design-card.tsx` and `components/empty-state.tsx`**
+- [x] **Step 4: Write `components/design-card.tsx` and `components/empty-state.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -1841,7 +1841,7 @@ export function EmptyState({ title, text }: { title: string; text: string }) {
 }
 ```
 
-- [ ] **Step 5: Write `components/room-tabs.tsx` and `components/explore-grid.tsx`**
+- [x] **Step 5: Write `components/room-tabs.tsx` and `components/explore-grid.tsx`**
 
 ```tsx
 import Link from 'next/link'
@@ -1917,7 +1917,7 @@ export function ExploreGrid({ cards }: { cards: CardDesign[] }) {
 
 Keep the `STYLES`/`CITIES` copies in this client file (importing `lib/content` would pull `node:fs` into the browser bundle); add a Vitest in Step 8 that asserts they equal `DESIGN_STYLES` and `CITIES`.
 
-- [ ] **Step 6: Write the three routes**
+- [x] **Step 6: Write the three routes**
 
 `app/(site)/designs/page.tsx`:
 ```tsx
@@ -2182,9 +2182,9 @@ export default async function DesignPage({ params }: Props) {
 
 `pb-28 md:pb-20` on the wrapper keeps the phone's fixed bottom bar from covering content.
 
-- [ ] **Step 7: Run the e2e tests** — `npx playwright test e2e/designs.spec.ts` — Expected: PASS (both projects). On phone, "Request a quote" exists twice (aside + sticky bar); the test uses `.first()`.
+- [x] **Step 7: Run the e2e tests** — `npx playwright test e2e/designs.spec.ts` — Expected: PASS (both projects). On phone, "Request a quote" exists twice (aside + sticky bar); the test uses `.first()`.
 
-- [ ] **Step 8: Add the drift guard unit test** — append to `tests/content.test.ts`:
+- [x] **Step 8: Add the drift guard unit test** — append to `tests/content.test.ts`:
 
 ```ts
 import { readFileSync } from 'node:fs'
@@ -2199,7 +2199,7 @@ test('explore-grid filter options match the content enums', () => {
 
 Run: `npx vitest run tests/content.test.ts` — Expected: PASS.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add components app/\(site\)/designs e2e/designs.spec.ts tests/content.test.ts
