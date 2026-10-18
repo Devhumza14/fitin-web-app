@@ -5277,7 +5277,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Create: `e2e/screenshots.spec.ts`
 - Modify: `.gitignore` (add `review/`)
 
-- [ ] **Step 1: Write the screenshot capture** — `e2e/screenshots.spec.ts`
+- [x] **Step 1: Write the screenshot capture** — `e2e/screenshots.spec.ts`
 
 ```ts
 import { test } from '@playwright/test'
@@ -5297,7 +5297,7 @@ test('capture review screenshots', async ({ page }, info) => {
 
 Run: `REVIEW=1 npx playwright test e2e/screenshots.spec.ts` — Expected: 28 PNGs in `review/`.
 
-- [ ] **Step 2: Audit** — invoke `taste-skill:redesign-skill` (audit mode) and `ui-ux-pro-max:ui-ux-pro-max` on the screenshots and the component code. Also compare each screenshot against its canvas artboard (https://claude.ai/artifact/XW6cjh4viAsRZL1dwUcFLP) for drift.
+- [x] **Step 2: Audit** — invoke `taste-skill:redesign-skill` (audit mode) and `ui-ux-pro-max:ui-ux-pro-max` on the screenshots and the component code. Also compare each screenshot against its canvas artboard (https://claude.ai/artifact/XW6cjh4viAsRZL1dwUcFLP) for drift.
 
 - [ ] **Step 3: Present findings to the user and STOP.** Format: a table of `#, page, severity (high/med/low), finding, proposed change`. Mark which findings are deviations from the approved design. Wait for the user to pick which to apply. Do not change code before that answer.
 
