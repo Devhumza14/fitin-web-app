@@ -1,0 +1,19 @@
+{
+  "slug": "pendant-lit-bedroom",
+  "status": "draft",
+  "title": "Pendant-lit bedroom",
+  "room": "bedrooms",
+  "style": "Warm Modern",
+  "city": "Rawalpindi",
+  "image": "/images/bedroom-pendant-light.jpg",
+  "imageAlt": "Warm bedroom with a sculptural pendant light",
+  "featured": false,
+  "summary": "Warm wood, soft linen and a sculptural pendant overhead.",
+  "about": "A warm modern bedroom with a sculptural pendant, timber flooring and soft linen layers, with a reading corner by the window.",
+  "included": [
+    "Bed and headboard",
+    "Pendant light",
+    "Reading chair",
+    "Side tables"
+  ]
+}

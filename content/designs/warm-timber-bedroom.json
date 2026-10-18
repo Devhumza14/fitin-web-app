@@ -1,0 +1,19 @@
+{
+  "slug": "warm-timber-bedroom",
+  "status": "draft",
+  "title": "Warm timber bedroom",
+  "room": "bedrooms",
+  "style": "Japandi Minimal",
+  "city": "Islamabad",
+  "image": "/images/bedroom-warm-timber.jpg",
+  "imageAlt": "Bedroom with a warm timber wall and recessed lighting",
+  "featured": false,
+  "summary": "A low bed, a full timber wall and soft hidden lighting.",
+  "about": "A Japandi bedroom with a full timber feature wall, a low bed and hidden lighting that washes the wood at night.",
+  "included": [
+    "Low platform bed",
+    "Timber feature wall",
+    "Recessed lighting",
+    "Bedside shelves"
+  ]
+}

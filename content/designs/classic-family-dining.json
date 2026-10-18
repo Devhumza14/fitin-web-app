@@ -1,0 +1,19 @@
+{
+  "slug": "classic-family-dining",
+  "status": "draft",
+  "title": "Classic family dining",
+  "room": "dining-areas",
+  "style": "Classic",
+  "city": "Multan",
+  "image": "/images/dining-classic.jpg",
+  "imageAlt": "Light dining room with grey upholstered chairs",
+  "featured": false,
+  "summary": "A long table, upholstered chairs and a statement chandelier.",
+  "about": "A classic dining room for big family meals: a long table, grey upholstered chairs, a sideboard and a statement chandelier.",
+  "included": [
+    "Dining table",
+    "Upholstered chairs",
+    "Sideboard",
+    "Chandelier"
+  ]
+}

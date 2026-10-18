@@ -1,0 +1,19 @@
+{
+  "slug": "patterned-tile-galley",
+  "status": "draft",
+  "title": "Patterned-tile galley",
+  "room": "kitchens",
+  "style": "Contemporary",
+  "city": "Karachi",
+  "image": "/images/kitchen-patterned-tile.jpg",
+  "imageAlt": "Galley kitchen with a patterned tile splashback",
+  "featured": false,
+  "summary": "A compact galley lifted by a bold patterned splashback.",
+  "about": "A compact galley kitchen that makes the most of a narrow space, lifted by a bold patterned tile splashback and dark counters.",
+  "included": [
+    "Galley cabinets",
+    "Patterned splashback",
+    "Counter tops",
+    "Built-in oven"
+  ]
+}

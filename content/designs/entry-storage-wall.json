@@ -1,0 +1,19 @@
+{
+  "slug": "entry-storage-wall",
+  "status": "draft",
+  "title": "Entry & storage wall",
+  "room": "wardrobes",
+  "style": "Contemporary",
+  "city": "Islamabad",
+  "image": "/images/hallway-built-in-storage.jpg",
+  "imageAlt": "Hallway with built-in storage and a bench",
+  "featured": false,
+  "summary": "A hallway storage wall with a bench, hooks and a mirror.",
+  "about": "A hallway turned into useful storage: a built-in bench, coat hooks, a mirror and a walk-in closet beyond.",
+  "included": [
+    "Built-in bench",
+    "Coat hooks",
+    "Mirror",
+    "Closet shelving"
+  ]
+}

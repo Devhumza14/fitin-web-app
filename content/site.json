@@ -1,0 +1,23 @@
+{
+  "name": "Fitin",
+  "legalName": "Fitin Pakistan",
+  "tagline": "Connecting spaces. Building possibilities.",
+  "description": "Connect with interior designers, discover custom furniture, and manage your entire project from one platform.",
+  "email": "hello@fitin.space",
+  "phone": "+923111555264",
+  "phoneDisplay": "+92 311 1555264",
+  "whatsapp": "923111555264",
+  "crmUrl": "https://crm.fitin.space",
+  "cities": ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Faisalabad", "Multan"],
+  "stats": { "designs": "500+", "designers": "50+", "vendors": "25+" },
+  "roomCounts": {
+    "living-rooms": "180+", "bedrooms": "150+", "kitchens": "120+", "wardrobes": "90+",
+    "bathrooms": "75+", "home-offices": "60+", "dining-areas": "55+", "commercial": "40+"
+  },
+  "claims": { "installDays": 14, "quoteHours": 24 },
+  "statsVerified": false,
+  "address": "",
+  "adsenseId": "",
+  "adSlot": "",
+  "gaId": ""
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "sunlit-study-nook",
+  "status": "draft",
+  "title": "Sunlit study nook",
+  "room": "home-offices",
+  "style": "Japandi Minimal",
+  "city": "Karachi",
+  "image": "/images/office-sunlit-desk.jpg",
+  "imageAlt": "Bright home office with a white desk by a window",
+  "featured": false,
+  "summary": "A bright white desk by the window, made for focused work at home.",
+  "about": "A compact home office by a big window: a clean white desk, a task lamp and just enough storage to keep the surface clear.",
+  "included": [
+    "Desk",
+    "Task chair",
+    "Desk lamp",
+    "Wall storage"
+  ]
+}

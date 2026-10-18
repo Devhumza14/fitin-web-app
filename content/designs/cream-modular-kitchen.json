@@ -1,0 +1,19 @@
+{
+  "slug": "cream-modular-kitchen",
+  "status": "draft",
+  "title": "Cream modular kitchen",
+  "room": "kitchens",
+  "style": "Warm Modern",
+  "city": "Faisalabad",
+  "image": "/images/kitchen-modular-cream.jpg",
+  "imageAlt": "Modular kitchen with cream cabinets and timber accents",
+  "featured": false,
+  "summary": "Cream cabinets, timber accents and every appliance built in.",
+  "about": "A U-shaped modular kitchen in cream with timber accents, built-in oven and hob, and storage planned for every pot and pan.",
+  "included": [
+    "Modular cabinets",
+    "Built-in appliances housing",
+    "Counter tops",
+    "Under-cabinet lighting"
+  ]
+}

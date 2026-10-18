@@ -1,0 +1,20 @@
+{
+  "slug": "spa-bath-with-a-view",
+  "status": "draft",
+  "title": "Spa bath with a view",
+  "room": "bathrooms",
+  "style": "Contemporary",
+  "city": "Karachi",
+  "image": "/images/bathroom-tub-window.jpg",
+  "imageAlt": "Bathroom with a freestanding tub beside a window",
+  "badge": "Fitin pick",
+  "featured": false,
+  "summary": "A freestanding tub, stone tones and a window view.",
+  "about": "A spa-style bathroom with a freestanding tub set beside a tall window, stone-toned surfaces and a vanity with generous storage.",
+  "included": [
+    "Freestanding tub",
+    "Vanity unit",
+    "Mirror and lighting",
+    "Tiling"
+  ]
+}

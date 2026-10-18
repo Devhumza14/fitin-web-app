@@ -1,0 +1,19 @@
+{
+  "slug": "garden-green-kitchen",
+  "status": "draft",
+  "title": "Garden-green kitchen",
+  "room": "kitchens",
+  "style": "Warm Modern",
+  "city": "Islamabad",
+  "image": "/images/kitchen-green-glasshouse.jpg",
+  "imageAlt": "Green kitchen in a glass house filled with plants",
+  "featured": false,
+  "summary": "Sage-green cabinetry and open shelving in a light-filled garden setting.",
+  "about": "Sage-green cabinetry, open shelving and a copper-toned work area bring the garden indoors in this light-filled kitchen.",
+  "included": [
+    "Green cabinetry",
+    "Open shelving",
+    "Work island",
+    "Plant shelving"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "teal-accent-lounge",
+  "status": "draft",
+  "title": "Teal accent lounge",
+  "room": "living-rooms",
+  "style": "Warm Modern",
+  "city": "Lahore",
+  "image": "/images/living-navy-sofa-teal-cushions.jpg",
+  "imageAlt": "Navy sofa with teal textured cushions",
+  "badge": "Most saved",
+  "featured": true,
+  "summary": "A calm, deep-navy lounge lifted by teal textures and warm oak.",
+  "about": "A calm, deep-navy lounge lifted by teal textures and warm oak. Low, generous seating faces a slim media wall, with layered lighting so the room works for a family evening and for guests.",
+  "included": ["Three-seater sofa", "Accent armchair", "Coffee table", "Media wall unit", "Rug & cushions", "Lighting plan"],
+  "finishes": {
+    "upholstery": [
+      { "name": "Navy velvet", "hex": "#1D2F4F" },
+      { "name": "Teal linen", "hex": "#2B9C9B" },
+      { "name": "Oat bouclé", "hex": "#E4DCCB" },
+      { "name": "Charcoal weave", "hex": "#3D4148" }
+    ],
+    "wood": [
+      { "name": "Natural oak", "hex": "#C8A27A" },
+      { "name": "Walnut", "hex": "#6B4A33" },
+      { "name": "White wash", "hex": "#ECE6DA" }
+    ]
+  }
+}

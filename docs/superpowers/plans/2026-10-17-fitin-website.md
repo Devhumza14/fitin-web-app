@@ -578,7 +578,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 **Interfaces:**
 - Produces: `RFT_MIN = 6`, `RFT_MAX = 30`, `RFT_DEFAULT = 12`, `kitchenEstimate(rft: number): { rft: number; low: string; high: string }` (Lakh, 2 decimals, rft clamped and rounded).
 
-- [ ] **Step 1: Write the failing test** — `tests/calculator.test.ts`
+- [x] **Step 1: Write the failing test** — `tests/calculator.test.ts`
 
 ```ts
 import { expect, test } from 'vitest'
@@ -601,11 +601,11 @@ test('clamps and rounds out-of-range input', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure**
+- [x] **Step 2: Run to verify failure**
 
 Run: `npx vitest run tests/calculator.test.ts` — Expected: FAIL (module not found).
 
-- [ ] **Step 3: Implement `lib/calculator.ts`**
+- [x] **Step 3: Implement `lib/calculator.ts`**
 
 ```ts
 // Comfort tier, from fitin.space: a 12 rft kitchen = PKR 7.55–9.19 Lakh. Scaled linearly per running foot.
@@ -622,9 +622,9 @@ export function kitchenEstimate(input: number) {
 }
 ```
 
-- [ ] **Step 4: Run tests** — `npx vitest run tests/calculator.test.ts` — Expected: PASS.
+- [x] **Step 4: Run tests** — `npx vitest run tests/calculator.test.ts` — Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/calculator.ts tests/calculator.test.ts
@@ -651,7 +651,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - `showDrafts(): boolean`.
   - `designHref(d: Design): string` → `/designs/<room>/<slug>`.
 
-- [ ] **Step 1: Write the failing test** — `tests/content.test.ts`
+- [x] **Step 1: Write the failing test** — `tests/content.test.ts`
 
 ```ts
 import { existsSync } from 'node:fs'
@@ -703,9 +703,9 @@ test('8 rooms, 4 services, valid site data', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx vitest run tests/content.test.ts` — Expected: FAIL (module not found).
+- [x] **Step 2: Run to verify failure** — `npx vitest run tests/content.test.ts` — Expected: FAIL (module not found).
 
-- [ ] **Step 3: Write `content/site.json`**
+- [x] **Step 3: Write `content/site.json`**
 
 ```json
 {
@@ -733,7 +733,7 @@ test('8 rooms, 4 services, valid site data', () => {
 }
 ```
 
-- [ ] **Step 4: Write `content/services.json`** (copy from `design/pages/Services.dc.html`)
+- [x] **Step 4: Write `content/services.json`** (copy from `design/pages/Services.dc.html`)
 
 ```json
 [
@@ -792,7 +792,7 @@ test('8 rooms, 4 services, valid site data', () => {
 ]
 ```
 
-- [ ] **Step 5: Write the 14 design files** in `content/designs/`. All `"status": "draft"` (stock photos — see Global Constraints). File name = `<slug>.json`.
+- [x] **Step 5: Write the 14 design files** in `content/designs/`. All `"status": "draft"` (stock photos — see Global Constraints). File name = `<slug>.json`.
 
 `teal-accent-lounge.json`:
 ```json
@@ -856,7 +856,7 @@ The other 13 follow the same schema (`finishes` omitted, `featured: false`, no `
 }
 ```
 
-- [ ] **Step 6: Implement `lib/content.ts`**
+- [x] **Step 6: Implement `lib/content.ts`**
 
 ```ts
 import { readdirSync, readFileSync } from 'node:fs'
@@ -961,9 +961,9 @@ export const getService = (slug: string) => services.find((s) => s.slug === slug
 
 Note: `resolveJsonModule` is on in the scaffolded `tsconfig.json`; if `import siteJson from '@/content/site.json'` errors, set `"resolveJsonModule": true`.
 
-- [ ] **Step 7: Run tests** — `npx vitest run tests/content.test.ts` — Expected: PASS.
+- [x] **Step 7: Run tests** — `npx vitest run tests/content.test.ts` — Expected: PASS.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add lib/content.ts content tests/content.test.ts

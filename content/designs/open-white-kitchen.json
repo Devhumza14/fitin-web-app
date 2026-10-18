@@ -1,0 +1,20 @@
+{
+  "slug": "open-white-kitchen",
+  "status": "draft",
+  "title": "Open white kitchen",
+  "room": "kitchens",
+  "style": "Contemporary",
+  "city": "Lahore",
+  "image": "/images/kitchen-open-white.jpg",
+  "imageAlt": "Open white kitchen with an island and dining nook",
+  "badge": "Fitin pick",
+  "featured": false,
+  "summary": "An open white kitchen with a long counter run and a bright breakfast corner.",
+  "about": "A long run of handle-free white cabinets with a warm wood counter, opening onto a breakfast corner so cooking and family time share one space.",
+  "included": [
+    "Base and wall cabinets",
+    "Counter tops",
+    "Breakfast table",
+    "Pendant lighting"
+  ]
+}

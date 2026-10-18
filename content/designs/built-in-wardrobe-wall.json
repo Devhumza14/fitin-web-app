@@ -1,0 +1,19 @@
+{
+  "slug": "built-in-wardrobe-wall",
+  "status": "draft",
+  "title": "Built-in wardrobe wall",
+  "room": "wardrobes",
+  "style": "Japandi Minimal",
+  "city": "Lahore",
+  "image": "/images/wardrobe-built-in.jpg",
+  "imageAlt": "Built-in wardrobe with open hanging and drawers",
+  "featured": false,
+  "summary": "Floor-to-ceiling storage with hanging, drawers and shoe shelves.",
+  "about": "A floor-to-ceiling built-in wardrobe that mixes long hanging, drawers and shoe shelves behind light-toned doors.",
+  "included": [
+    "Wardrobe carcass",
+    "Hanging rails",
+    "Drawers",
+    "Shoe shelves"
+  ]
+}

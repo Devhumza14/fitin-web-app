@@ -1,0 +1,20 @@
+{
+  "slug": "navy-white-suite",
+  "status": "draft",
+  "title": "Navy & white suite",
+  "room": "bedrooms",
+  "style": "Contemporary",
+  "city": "Karachi",
+  "image": "/images/bedroom-navy-city-view.jpg",
+  "imageAlt": "Bright bedroom with navy bedding and a city view",
+  "featured": false,
+  "summary": "Crisp white walls, navy bedding and full-height glass for a calm city bedroom.",
+  "about": "A bright bedroom built around a full-height window: crisp white walls, navy bedding and warm bedside lamps keep it calm by day and cosy at night.",
+  "included": [
+    "King bed and headboard",
+    "Bedside tables",
+    "Reading lamps",
+    "Blackout curtains",
+    "Rug"
+  ]
+}

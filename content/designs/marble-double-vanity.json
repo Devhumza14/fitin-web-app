@@ -1,0 +1,19 @@
+{
+  "slug": "marble-double-vanity",
+  "status": "draft",
+  "title": "Marble double vanity",
+  "room": "bathrooms",
+  "style": "Classic",
+  "city": "Lahore",
+  "image": "/images/bathroom-double-vanity.jpg",
+  "imageAlt": "Bathroom with a marble double vanity and wide mirror",
+  "featured": false,
+  "summary": "A wide marble double vanity with a full-width mirror.",
+  "about": "A classic bathroom with a marble-topped double vanity, a full-width mirror and white cabinetry for everyday storage.",
+  "included": [
+    "Double vanity",
+    "Marble top",
+    "Wide mirror",
+    "Cabinet storage"
+  ]
+}

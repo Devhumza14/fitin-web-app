@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "modular-kitchens-wardrobes",
+    "name": "Modular kitchens & wardrobes",
+    "startService": "Modular kitchen & wardrobe",
+    "short": "Modular",
+    "bar": "navy",
+    "summary": "Made-to-measure kitchens and storage, planned around how you cook, store and live.",
+    "intro": "A modular kitchen or wardrobe is built in your space's exact measurements, with the cabinets, counters and hardware you choose. Fitin matches you with a verified designer, who plans the layout, and a trusted vendor, who builds and installs it.",
+    "includes": ["Layout planning and on-site measurements", "Cabinets, counters and hardware", "Built-in and walk-in wardrobes", "Installation by verified vendors"],
+    "image": "/images/kitchen-modular-cream.jpg",
+    "imageAlt": "Modular kitchen with cream cabinets and timber accents",
+    "calculator": true
+  },
+  {
+    "slug": "full-home-interiors",
+    "name": "Full-home interiors",
+    "startService": "Full-home interior",
+    "short": "Full home",
+    "bar": "teal",
+    "summary": "Every room planned together by one designer, so your home feels like one idea.",
+    "intro": "For a new home or a complete refresh, one designer plans every room together — layouts, materials, furniture and lighting — so the whole home is consistent. You get one plan, one schedule and one point of contact.",
+    "includes": ["Whole-home plan and material board", "Furniture, lighting and soft furnishings", "Kitchens, wardrobes and storage", "One point of contact from start to finish"],
+    "image": "/images/dining-classic.jpg",
+    "imageAlt": "Light dining room with grey upholstered chairs",
+    "calculator": false
+  },
+  {
+    "slug": "signature",
+    "name": "Signature",
+    "startService": "Signature",
+    "short": "Signature",
+    "bar": "lime",
+    "summary": "Our most bespoke tier, for homes where every surface is a decision.",
+    "intro": "Signature is Fitin's most bespoke tier: premium materials, fully custom furniture and 3D walkthroughs before anything is built.",
+    "includes": ["Premium materials and finishes", "Fully custom furniture pieces", "3D walkthroughs before anything is built"],
+    "image": "/images/bathroom-tub-window.jpg",
+    "imageAlt": "Bathroom with a freestanding tub and a window view",
+    "calculator": false
+  },
+  {
+    "slug": "renovation",
+    "name": "Renovation",
+    "startService": "Renovation",
+    "short": "Renovation",
+    "bar": "navy",
+    "summary": "Give an older home a new layout and new finishes, coordinated by one team.",
+    "intro": "Renovation covers layout changes, built-ins, flooring, ceilings and finishes. Fitin coordinates trusted vendors and keeps every step tracked in one place.",
+    "includes": ["Layout changes and built-ins", "Flooring, ceilings and finishes", "Trusted vendors, tracked on one platform"],
+    "image": "/images/hallway-built-in-storage.jpg",
+    "imageAlt": "Freshly renovated hallway with built-in storage",
+    "calculator": false
+  }
+]
