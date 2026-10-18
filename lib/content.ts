@@ -55,6 +55,8 @@ const siteSchema = z.object({
   roomCounts: z.record(z.enum(ROOM_SLUGS), z.string()),
   claims: z.object({ installDays: z.number(), quoteHours: z.number() }),
   statsVerified: z.boolean(),
+  legalReviewed: z.boolean(),
+  legalUpdated: z.iso.date(),
   address: z.string(),
   adsenseId: z.string().regex(/^(ca-pub-\d{16})?$/),
   adSlot: z.string().regex(/^\d*$/),

@@ -3456,7 +3456,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Visual source: `design/pages/Designers.dc.html`, `PhoneDesigners.dc.html`.
 - Copy rule: the FAQ "Is there a fee to join?" is **omitted** until Fitin supplies the answer (no placeholder ships).
 
-- [ ] **Step 1: Write the failing test** — `e2e/for-designers.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/for-designers.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -3488,9 +3488,9 @@ test('FAQ answers expand natively', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/for-designers.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/for-designers.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Write `components/faq.tsx`**
+- [x] **Step 3: Write `components/faq.tsx`**
 
 ```tsx
 export function Faq({ items }: { items: { q: string; a: string }[] }) {
@@ -3510,7 +3510,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
 }
 ```
 
-- [ ] **Step 4: Write `components/forms/partner-form.tsx`**
+- [x] **Step 4: Write `components/forms/partner-form.tsx`**
 
 ```tsx
 'use client'
@@ -3581,7 +3581,7 @@ export function PartnerForm() {
 
 `fieldErrors(partnerSchema, v)` reports `city` with `MSG.city` because `''` is not in the enum — matches the design copy.
 
-- [ ] **Step 5: Write `app/(site)/for-designers/page.tsx`**
+- [x] **Step 5: Write `app/(site)/for-designers/page.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -3683,9 +3683,9 @@ export default function ForDesignersPage() {
 }
 ```
 
-- [ ] **Step 6: Run tests** — `npx playwright test e2e/for-designers.spec.ts` — Expected: PASS.
+- [x] **Step 6: Run tests** — `npx playwright test e2e/for-designers.spec.ts` — Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add components/faq.tsx components/forms/partner-form.tsx app/\(site\)/for-designers e2e/for-designers.spec.ts
@@ -3708,7 +3708,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 - Visual source: `design/pages/About.dc.html`, `Legal.dc.html`, `NotFound.dc.html` and phone versions.
 - **Legal text rule:** the privacy policy and terms below are complete drafts with the disclosures AdSense requires; `site.legalReviewed` stays `false` until Fitin's counsel approves them, and the launch check (Task 17) blocks deploy while it is `false`.
 
-- [ ] **Step 1: Write the failing test** — `e2e/pages.spec.ts`
+- [x] **Step 1: Write the failing test** — `e2e/pages.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -3748,11 +3748,11 @@ test('about page and 404 page', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/pages.spec.ts` — Expected: FAIL.
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/pages.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 3: Update site data** — add to `content/site.json`: `"legalReviewed": false, "legalUpdated": "2026-10-17"`; add to `siteSchema` in `lib/content.ts`: `legalReviewed: z.boolean(), legalUpdated: z.iso.date(),`. Run `npx vitest run tests/content.test.ts` — Expected: PASS.
+- [x] **Step 3: Update site data** — add to `content/site.json`: `"legalReviewed": false, "legalUpdated": "2026-10-17"`; add to `siteSchema` in `lib/content.ts`: `legalReviewed: z.boolean(), legalUpdated: z.iso.date(),`. Run `npx vitest run tests/content.test.ts` — Expected: PASS.
 
-- [ ] **Step 4: Write `components/forms/contact-form.tsx`**
+- [x] **Step 4: Write `components/forms/contact-form.tsx`**
 
 ```tsx
 'use client'
@@ -3812,7 +3812,7 @@ export function ContactForm() {
 }
 ```
 
-- [ ] **Step 5: Write `app/(site)/about/page.tsx` and `app/(site)/contact/page.tsx`**
+- [x] **Step 5: Write `app/(site)/about/page.tsx` and `app/(site)/contact/page.tsx`**
 
 ```tsx
 // app/(site)/about/page.tsx
@@ -3930,7 +3930,7 @@ export default function ContactPage() {
 }
 ```
 
-- [ ] **Step 6: Write the legal pages**
+- [x] **Step 6: Write the legal pages**
 
 `components/legal-tabs.tsx`:
 ```tsx
@@ -4033,7 +4033,7 @@ export default function TermsPage() {
 }
 ```
 
-- [ ] **Step 7: Write the 404**
+- [x] **Step 7: Write the 404**
 
 `components/not-found-bars.tsx`:
 ```tsx
@@ -4107,9 +4107,9 @@ export default function NotFound() {
 
 The `h1` text is `This page doesn't fit.` — the `Highlight` span does not change the accessible name.
 
-- [ ] **Step 8: Run tests** — `npx playwright test e2e/pages.spec.ts && npm test` — Expected: PASS.
+- [x] **Step 8: Run tests** — `npx playwright test e2e/pages.spec.ts && npm test` — Expected: PASS.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add components app content/site.json lib e2e/pages.spec.ts

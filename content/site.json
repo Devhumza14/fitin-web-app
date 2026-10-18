@@ -8,16 +8,38 @@
   "phoneDisplay": "+92 311 1555264",
   "whatsapp": "923111555264",
   "crmUrl": "https://crm.fitin.space",
-  "cities": ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Faisalabad", "Multan"],
-  "stats": { "designs": "500+", "designers": "50+", "vendors": "25+" },
-  "roomCounts": {
-    "living-rooms": "180+", "bedrooms": "150+", "kitchens": "120+", "wardrobes": "90+",
-    "bathrooms": "75+", "home-offices": "60+", "dining-areas": "55+", "commercial": "40+"
+  "cities": [
+    "Karachi",
+    "Lahore",
+    "Islamabad",
+    "Rawalpindi",
+    "Faisalabad",
+    "Multan"
+  ],
+  "stats": {
+    "designs": "500+",
+    "designers": "50+",
+    "vendors": "25+"
   },
-  "claims": { "installDays": 14, "quoteHours": 24 },
+  "roomCounts": {
+    "living-rooms": "180+",
+    "bedrooms": "150+",
+    "kitchens": "120+",
+    "wardrobes": "90+",
+    "bathrooms": "75+",
+    "home-offices": "60+",
+    "dining-areas": "55+",
+    "commercial": "40+"
+  },
+  "claims": {
+    "installDays": 14,
+    "quoteHours": 24
+  },
   "statsVerified": false,
   "address": "",
   "adsenseId": "",
   "adSlot": "",
-  "gaId": ""
+  "gaId": "",
+  "legalReviewed": false,
+  "legalUpdated": "2026-10-17"
 }
