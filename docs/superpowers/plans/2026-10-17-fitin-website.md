@@ -987,7 +987,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - `Logo({ size? })`, `Header()`, `Footer()`, `NAV` array.
   - `pageMetadata({ title, description, path, noindex? }): Metadata` and `SITE_URL`.
 
-- [ ] **Step 1: Write the failing e2e test** — `e2e/chrome.spec.ts`
+- [x] **Step 1: Write the failing e2e test** — `e2e/chrome.spec.ts`
 
 ```ts
 import { expect, test } from '@playwright/test'
@@ -1025,9 +1025,9 @@ test('phone menu opens as a dialog and closes with Escape', async ({ page, isMob
 })
 ```
 
-- [ ] **Step 2: Run to verify failure** — `npx playwright test e2e/chrome.spec.ts` — Expected: FAIL (no footer / navigation).
+- [x] **Step 2: Run to verify failure** — `npx playwright test e2e/chrome.spec.ts` — Expected: FAIL (no footer / navigation).
 
-- [ ] **Step 3: Write `components/icons.tsx`** (paths copied from the canvas designs)
+- [x] **Step 3: Write `components/icons.tsx`** (paths copied from the canvas designs)
 
 ```tsx
 type P = { className?: string }
@@ -1091,7 +1091,7 @@ export const PlayIcon = ({ className }: P) => (
 )
 ```
 
-- [ ] **Step 4: Write `components/ui.tsx`**
+- [x] **Step 4: Write `components/ui.tsx`**
 
 ```tsx
 import type { ReactNode } from 'react'
@@ -1138,7 +1138,7 @@ export const CheckList = ({ items }: { items: string[] }) => (
 )
 ```
 
-- [ ] **Step 5: Write `components/nav-link.tsx`**
+- [x] **Step 5: Write `components/nav-link.tsx`**
 
 ```tsx
 'use client'
@@ -1163,7 +1163,7 @@ export function NavLink({ href, children }: { href: string; children: ReactNode 
 }
 ```
 
-- [ ] **Step 6: Write `components/mobile-menu.tsx`** (native `<dialog>` gives focus trap and Escape for free)
+- [x] **Step 6: Write `components/mobile-menu.tsx`** (native `<dialog>` gives focus trap and Escape for free)
 
 ```tsx
 'use client'
@@ -1219,7 +1219,7 @@ export function MobileMenu({ crmUrl, whatsapp }: { crmUrl: string; whatsapp: str
 }
 ```
 
-- [ ] **Step 7: Write `components/header.tsx`**
+- [x] **Step 7: Write `components/header.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -1264,7 +1264,7 @@ export function Header() {
 
 Note: the e2e test looks up `getByRole('link', { name: 'Start project' })` on desktop; on phone the visible label is "Start". Both live in one `<a>`, so its accessible name differs per breakpoint (hidden spans are excluded). That is intended.
 
-- [ ] **Step 8: Write `components/footer.tsx`**
+- [x] **Step 8: Write `components/footer.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -1319,7 +1319,7 @@ export function Footer() {
 
 `no-underline` keeps links clean; base styles colour them navy.
 
-- [ ] **Step 9: Write `app/(site)/layout.tsx` and `lib/seo.ts`**
+- [x] **Step 9: Write `app/(site)/layout.tsx` and `lib/seo.ts`**
 
 ```tsx
 import { Footer } from '@/components/footer'
@@ -1357,9 +1357,9 @@ export function pageMetadata({ title, description, path, noindex = false }: { ti
 }
 ```
 
-- [ ] **Step 10: Run the tests** — `npx playwright test e2e/chrome.spec.ts e2e/smoke.spec.ts` — Expected: PASS (6 tests across desktop + phone; skips count as passed).
+- [x] **Step 10: Run the tests** — `npx playwright test e2e/chrome.spec.ts e2e/smoke.spec.ts` — Expected: PASS (6 tests across desktop + phone; skips count as passed).
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
 ```bash
 git add components app lib/seo.ts e2e/chrome.spec.ts
