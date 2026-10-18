@@ -4134,7 +4134,7 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
   - MDX component `<AdBreak />` (renders `AdSlot`), `AdSlot()` (renders nothing unless `site.adsenseId` and `site.adSlot` are set; reserves 280 px when it renders).
   - `pageMetadata({ ..., article?: { published: string; modified?: string } })`.
 
-- [ ] **Step 1: Install MDX and wrap the config**
+- [x] **Step 1: Install MDX and wrap the config**
 
 ```bash
 npm i @next/mdx @mdx-js/loader @mdx-js/react
@@ -4156,7 +4156,7 @@ export default createMDX({})(nextConfig)
 
 Update `tests/smoke.test.ts` to `expect((await import('@/next.config')).default).toBeTruthy()` — the wrapped export may be a function in some versions. Run `npm test` — Expected: PASS.
 
-- [ ] **Step 2: Write the failing tests**
+- [x] **Step 2: Write the failing tests**
 
 `tests/ads-scope.test.ts` (ads may only be wired on the article page):
 ```ts
@@ -4202,9 +4202,9 @@ test('unknown article is a 404', async ({ page }) => {
 })
 ```
 
-- [ ] **Step 3: Run to verify failure** — `npx vitest run tests/ads-scope.test.ts && npx playwright test e2e/journal.spec.ts` — Expected: FAIL.
+- [x] **Step 3: Run to verify failure** — `npx vitest run tests/ads-scope.test.ts && npx playwright test e2e/journal.spec.ts` — Expected: FAIL.
 
-- [ ] **Step 4: Write `components/ad-slot.tsx` and `mdx-components.tsx`**
+- [x] **Step 4: Write `components/ad-slot.tsx` and `mdx-components.tsx`**
 
 ```tsx
 'use client'
@@ -4260,7 +4260,7 @@ export function useMDXComponents(): MDXComponents {
 }
 ```
 
-- [ ] **Step 5: Write `lib/journal.ts`**
+- [x] **Step 5: Write `lib/journal.ts`**
 
 ```ts
 import { readdirSync } from 'node:fs'
@@ -4309,7 +4309,7 @@ export async function getArticle(slug: string) {
 }
 ```
 
-- [ ] **Step 6: Extend `lib/seo.ts`** — replace `pageMetadata` with:
+- [x] **Step 6: Extend `lib/seo.ts`** — replace `pageMetadata` with:
 
 ```ts
 export function pageMetadata({ title, description, path, noindex = false, article }: {
@@ -4329,7 +4329,7 @@ export function pageMetadata({ title, description, path, noindex = false, articl
 }
 ```
 
-- [ ] **Step 7: Write the first article** — `content/journal/modular-kitchen-cost-pakistan.mdx`
+- [x] **Step 7: Write the first article** — `content/journal/modular-kitchen-cost-pakistan.mdx`
 
 ```mdx
 export const meta = {
@@ -4387,7 +4387,7 @@ Moving plumbing or gas lines, levelling walls or adding electrical points adds c
 A real quote needs measurements, your material choices and a look at the site. With Fitin, a verified designer visits, measures and prepares an itemised quote for your kitchen. [Start a project](/start) to book a free consultation, or see our [modular kitchens and wardrobes](/services/modular-kitchens-wardrobes) service for what is included.
 ```
 
-- [ ] **Step 8: Write `components/article-card.tsx` and `app/(site)/journal/page.tsx`**
+- [x] **Step 8: Write `components/article-card.tsx` and `app/(site)/journal/page.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -4443,7 +4443,7 @@ export default async function JournalPage() {
 }
 ```
 
-- [ ] **Step 9: Write `app/(site)/journal/[article]/page.tsx`**
+- [x] **Step 9: Write `app/(site)/journal/[article]/page.tsx`**
 
 ```tsx
 import Image from 'next/image'
@@ -4521,9 +4521,9 @@ export default async function ArticlePage({ params }: Props) {
 
 `DesignGrid` uses a 4-column grid; on this 760 px column it shows 2 columns from `sm` — acceptable. Draft designs referenced by `relatedDesigns` are hidden automatically in production.
 
-- [ ] **Step 10: Run tests** — `npx vitest run && npx playwright test e2e/journal.spec.ts` — Expected: PASS.
+- [x] **Step 10: Run tests** — `npx vitest run && npx playwright test e2e/journal.spec.ts` — Expected: PASS.
 
-- [ ] **Step 11: Commit**
+- [x] **Step 11: Commit**
 
 ```bash
 git add mdx-components.tsx next.config.ts lib components app/\(site\)/journal content/journal tests e2e/journal.spec.ts package.json package-lock.json
