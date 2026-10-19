@@ -143,7 +143,6 @@ Success state keeps the designed confirmation screen plus a "Chat on WhatsApp" b
 - CSP: `default-src 'self'`; `script-src 'self' 'unsafe-inline'` + Google ads/analytics domains; `img-src`/`frame-src`/`connect-src` limited to self + Google ad/analytics domains; `object-src 'none'`; `base-uri 'self'`; `form-action 'self'`; `frame-ancestors 'none'`. (`'unsafe-inline'` is required by static generation; nonce CSP would force dynamic rendering.)
 - API: POST only, content-type and size checks, strict schemas, escaped email output, no user input in paths or queries beyond parameterised REST insert.
 - Secrets only in server env; `.env*` git-ignored; lockfile committed; `npm audit` in checks.
-- Final step: Strix (github.com/usestrix/strix, installed via `uv tool install --python 3.12 strix-agent`, user-supplied LLM key) scans source then live URL; fix and re-scan.
 
 ## 10. Testing and verification
 
@@ -163,7 +162,6 @@ Success state keeps the designed confirmation screen plus a "Chat on WhatsApp" b
 5. SEO metadata, JSON-LD, sitemap/robots/ads.txt, OG images and icons, AdSense + GA + consent.
 6. Tests, Lighthouse, accessibility, design review (user approves changes).
 7. Deploy prep: Hostinger notes, env vars, canonical host, Namecheap DNS (site + Resend), Search Console steps.
-8. Strix scan, fixes, re-scan.
 
 ## 12. Owned by Fitin (blocking launch or AdSense)
 
@@ -171,4 +169,4 @@ Success state keeps the designed confirmation screen plus a "Chat on WhatsApp" b
 - Replace sample content: the example designs' details, Signature description, budget ranges, designer names, office address, joining-fee FAQ answer.
 - Review every Journal article before publishing.
 - Legal wording for Privacy and Terms (counsel).
-- Accounts: Supabase project, Resend, AdSense, Google Analytics, Search Console, Hostinger; Strix LLM API key.
+- Accounts: Supabase project, Resend, AdSense, Google Analytics, Search Console, Hostinger.

@@ -4,7 +4,7 @@ Marketing site for Fitin (fitin.space) — a Pakistani platform connecting homeo
 
 ## Read before working
 - Spec: `docs/superpowers/specs/2026-10-17-fitin-website-design.md`
-- Plan (21 tasks, being executed natively in order): `docs/superpowers/plans/2026-10-17-fitin-website.md`
+- Plan (20 tasks, being executed natively in order): `docs/superpowers/plans/2026-10-17-fitin-website.md`
 - Design system: `design/FITIN-DESIGN.md` · page sources: `design/pages/*.dc.html` (canvas format, reference only — not runnable) · canvas: https://claude.ai/artifact/XW6cjh4viAsRZL1dwUcFLP
 - Check off plan steps (`- [x]`) as they complete so progress survives between sessions.
 
@@ -17,7 +17,6 @@ Marketing site for Fitin (fitin.space) — a Pakistani platform connecting homeo
 - **Ads:** AdSense script and slots only on `/journal/[article]` (a test enforces this).
 - **Next.js 16:** route `params` are Promises (`await params`); use `preload`, not `priority`, on `next/image`.
 - **Security:** secrets only in server env (`.env*` is git-ignored); headers/CSP live in `next.config.ts`.
-- **Strix** security scan is the last task — official CLI only (`uv tool install --python 3.12 strix-agent`), never third-party "strix" skills.
 
 ## Commands
 - `npm run dev` · `npm run build` · `npm start`

@@ -16,7 +16,6 @@ playwright-report/
 coverage/
 # tooling
 graphify-out/
-strix_runs/
 supabase/.temp/
 .superpowers/
 # misc
