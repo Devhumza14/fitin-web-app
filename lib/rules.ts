@@ -41,8 +41,9 @@ export function normalizePkMobile(input: string): string | null {
   return m ? `+92${m[1]}` : null
 }
 
-export const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s)
-export const isPortfolio = (s: string) => /^@[\w.]{2,}$/.test(s) || /^(https?:\/\/)?[^\s./]+\.[^\s]{2,}$/.test(s)
+// 254 is the RFC 5321 limit; the cap keeps the regex's worst case small. No <>",; so reply_to is always a bare address.
+export const isEmail = (s: string) => s.length <= 254 && /^[^\s@<>",;]+@[^\s@<>",;]+\.[^\s@<>",;]{2,}$/.test(s)
+export const isPortfolio = (s: string) => s.length <= 300 && (/^@[\w.]{2,}$/.test(s) || /^(https?:\/\/)?[^\s./]+\.[^\s]{2,}$/.test(s))
 
 const nameField = (msg: string) =>
   z.string({ error: msg }).trim().min(2, { error: msg }).max(100, { error: 'Keep it under 100 characters.' })
@@ -103,7 +104,7 @@ export const partnerSchema = z.object({
     if (!isPortfolio(v)) { ctx.issues.push({ code: 'custom', message: MSG.portfolioInvalid, input: raw }); return z.NEVER }
     return v
   }),
-  specialties: z.array(z.enum(SPECIALTIES)).min(1, { error: MSG.specialties }),
+  specialties: z.array(z.enum(SPECIALTIES)).min(1, { error: MSG.specialties }).max(SPECIALTIES.length),
 })
 
 export const contactSchema = z.object({

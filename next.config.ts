@@ -24,7 +24,12 @@ const csp = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: { inlineCss: true }, // removes the render-blocking stylesheet request; the CSS is only ~10 KB
-  images: { formats: ['image/avif', 'image/webp'] },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    localPatterns: [{ pathname: '/images/**', search: '' }], // only the public photos, not any route
+    maximumDiskCacheSize: 200_000_000, // a url fragment makes a new cache key, so cap the cache rather than trust the default (50% of free disk)
+    minimumCacheTTL: 2_592_000,
+  },
   async redirects() {
     return [
       { source: '/:path*', has: [{ type: 'host', value: 'www.fitin.space' }], destination: 'https://fitin.space/:path*', permanent: true },

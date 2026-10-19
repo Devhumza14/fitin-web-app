@@ -3,6 +3,7 @@ import { OG_SIZE, ogImage } from '@/lib/og'
 
 export const size = OG_SIZE
 export const contentType = 'image/png'
+export const dynamicParams = false
 export const alt = 'Fitin design'
 
 export const generateStaticParams = () => getDesigns().map((d) => ({ room: d.room, design: d.slug }))

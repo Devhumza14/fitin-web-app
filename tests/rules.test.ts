@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import {
-  MSG, contactSchema, fieldErrors, isPortfolio, leadSchema, normalizePkMobile,
+  MSG, contactSchema, fieldErrors, isEmail, isPortfolio, leadSchema, normalizePkMobile,
   partnerSchema, projectStep1, projectStep2, projectStep3, projectStep4,
 } from '@/lib/rules'
 
@@ -76,4 +76,17 @@ test('leadSchema discriminates on type and strips unknown keys', () => {
   })
   expect(r.type).toBe('contact')
   expect('admin' in r).toBe(false)
+})
+
+describe('email and portfolio bounds', () => {
+  test('isEmail is capped at 254 characters and rejects display-name characters', () => {
+    expect(isEmail(`${'a'.repeat(240)}@example.com`)).toBe(true)
+    expect(isEmail(`a@${'.'.repeat(300)} x`)).toBe(false)
+    expect(isEmail('Evil<x@y.com>')).toBe(false)
+    expect(isEmail('a@b.co')).toBe(true)
+  })
+  test('isPortfolio is capped at 300 characters', () => {
+    expect(isPortfolio('@fitin.studio')).toBe(true)
+    expect(isPortfolio(`https://example.com/${'a'.repeat(300)}`)).toBe(false)
+  })
 })

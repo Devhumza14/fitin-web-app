@@ -104,7 +104,11 @@ describe('POST /api/leads', () => {
 
   test('rejects wrong content type and oversized bodies', async () => {
     expect((await POST(req(project, { type: 'text/plain' }))).status).toBe(415)
-    expect((await POST(req(null, { raw: JSON.stringify({ ...project, message: 'x'.repeat(11_000) }) }))).status).toBe(413)
+    expect((await POST(req(project, { type: 'text/plain; application/json' }))).status).toBe(415)
+    expect((await POST(req(project, { type: 'application/json; charset=utf-8' }))).status).toBe(200)
+    expect((await POST(req(null, { raw: JSON.stringify({ ...project, message: 'x'.repeat(20_000) }) }))).status).toBe(413)
+    // multibyte text is measured in bytes, not characters
+    expect((await POST(req(null, { raw: JSON.stringify({ ...project, message: 'ا'.repeat(9_000) }) }))).status).toBe(413)
     expect((await POST(req(null, { raw: '{not json' }))).status).toBe(400)
   })
 
