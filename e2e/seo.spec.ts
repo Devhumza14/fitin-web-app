@@ -24,6 +24,13 @@ test('OG image and icons are served', async ({ request }) => {
   expect((await request.get('/icon.svg')).status()).toBe(200)
 })
 
+test('pages without their own OG image fall back to the site image', async ({ page }) => {
+  for (const path of ['/', '/designs', '/services']) {
+    await page.goto(path)
+    await expect(page.locator('meta[property="og:image"]').first()).toHaveAttribute('content', /\/opengraph-image/)
+  }
+})
+
 test('pages carry canonical, JSON-LD and OG tags', async ({ page }) => {
   await page.goto('/designs')
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://fitin.space/designs')

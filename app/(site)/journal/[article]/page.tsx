@@ -23,7 +23,7 @@ type Props = { params: Promise<{ article: string }> }
 export async function generateMetadata({ params }: Props) {
   const a = await getArticle((await params).article)
   if (!a) return {}
-  return pageMetadata({ title: a.meta.title, description: a.meta.description, path: `/journal/${a.meta.slug}`, article: { published: a.meta.date, modified: a.meta.updated } })
+  return pageMetadata({ title: a.meta.title, description: a.meta.description, path: `/journal/${a.meta.slug}`, article: { published: a.meta.date, modified: a.meta.updated }, ownImage: true })
 }
 
 export default async function ArticlePage({ params }: Props) {

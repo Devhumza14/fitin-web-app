@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   const { room, design } = await params
   const d = getDesign(room, design)
   if (!d) return {}
-  return pageMetadata({ title: `${d.title} — ${d.style} ${getRoom(d.room)!.single.toLowerCase()} design`, description: d.summary, path: `/designs/${d.room}/${d.slug}` })
+  return pageMetadata({ title: `${d.title} — ${d.style} ${getRoom(d.room)!.single.toLowerCase()} design`, description: d.summary, path: `/designs/${d.room}/${d.slug}`, ownImage: true })
 }
 
 const STAGES = [
