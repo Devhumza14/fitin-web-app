@@ -1,11 +1,22 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
-import { Figtree } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 import { site } from '@/lib/content'
 import './globals.css'
 
-const figtree = Figtree({ subsets: ['latin'], variable: '--font-figtree', display: 'swap' })
+// Local files, so the build never needs to reach Google Fonts (the Hostinger build hung there).
+const figtree = localFont({
+  src: [
+    { path: '../node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: '../node_modules/@fontsource/figtree/files/figtree-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: '../node_modules/@fontsource/figtree/files/figtree-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: '../node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: '../node_modules/@fontsource/figtree/files/figtree-latin-800-normal.woff2', weight: '800', style: 'normal' },
+  ],
+  variable: '--font-figtree',
+  display: 'swap',
+})
 
 // EEA + UK + CH: consent denied until Google's certified consent message (loaded with AdSense) grants it.
 const CONSENT_REGIONS = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
